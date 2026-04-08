@@ -2,9 +2,9 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
+/modules.xml
 /projectSettingsUpdater.xml
 /contentModel.xml
-/modules.xml
 /.idea.AutoConfigKurzpraktikum.iml
 # Ignored default folder with query files
 /queries/

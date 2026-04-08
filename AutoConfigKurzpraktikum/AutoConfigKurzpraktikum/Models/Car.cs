@@ -4,13 +4,13 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace AutoConfigKurzpraktikum.Models;
 
-public class Auto
+public class Car
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string AutoId { get; set; }
+    public string CarId { get; set; }
     
-    public string Marke {get;set;}
+    public string Brand {get;set;}
     public string Modell {get;set;}
     public double Price {get;set;}
     public int BaseHorsepower {get;set;}

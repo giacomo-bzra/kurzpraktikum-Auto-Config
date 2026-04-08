@@ -13,6 +13,6 @@ public class User
     public string Password { get; set; }
     public decimal Balance { get; set; }
 
-    public List<Auto> Cars { get; set; } = new List<Auto>();
+    public List<Car> Cars { get; set; } = new List<Car>();
 
 }

@@ -1,3 +1,5 @@
+using AutoConfigKurzpraktikum.Models;
+using AutoConfigKurzpraktikum.Models.Parts;
 using MongoDB.Bson.Serialization;
 
 namespace AutoConfigKurzpraktikum;
@@ -15,6 +17,7 @@ public static class DataBaseConfig
         BsonClassMap.RegisterClassMap<Heckspoiler>();
         BsonClassMap.RegisterClassMap<Brake>();
         BsonClassMap.RegisterClassMap<Frontspoiler>();
+        
     }
     
 }

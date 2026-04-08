@@ -15,8 +15,9 @@ public abstract class TuningPart
     public bool IsInstalled { get; set; }
     public string Color { get; set; }
 
-    public TuningPart(string name, double price, double weight, bool isInstalled,  string color)
+    public TuningPart(string partId, string name, double price, double weight, bool isInstalled,  string color)
     {
+        this.PartId = partId;
         this.Name = name ;
         this.Price = price;
         this.Weight = weight;

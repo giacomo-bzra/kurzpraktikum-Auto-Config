@@ -10,3 +10,5 @@ C:\Users\giaco\Documents\wpf\kurzprojekt\AutoConfigKurzpraktikum\AutoConfigKurzp
 C:\Users\giaco\Documents\wpf\kurzprojekt\AutoConfigKurzpraktikum\AutoConfigKurzpraktikum\obj\Debug\net10.0-windows\App.g.cs
 C:\Users\giaco\Documents\wpf\kurzprojekt\AutoConfigKurzpraktikum\AutoConfigKurzpraktikum\obj\Debug\net10.0-windows\AutoConfigKurzpraktikum_MarkupCompile.cache
 C:\Users\giaco\Documents\wpf\kurzprojekt\AutoConfigKurzpraktikum\AutoConfigKurzpraktikum\obj\Debug\net10.0-windows\AutoConfigKurzpraktikum_MarkupCompile.lref
+C:\Users\samib\Documents\IMS\Kurzpraktikum\AutoConfigKurzpraktikum\AutoConfigKurzpraktikum\obj\Debug\net10.0-windows\Pages\MainWindow.g.cs
+C:\Users\samib\Documents\IMS\Kurzpraktikum\AutoConfigKurzpraktikum\AutoConfigKurzpraktikum\obj\Debug\net10.0-windows\Pages\TuneWindow.g.cs

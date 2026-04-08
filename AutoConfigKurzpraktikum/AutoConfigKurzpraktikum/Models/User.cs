@@ -15,4 +15,11 @@ public class User
 
     public List<Car> Cars { get; set; } = new List<Car>();
 
+    public User(string Username, string Password, decimal Balance)
+    {
+        this.Username = Username;
+        this.Password = Password;
+        this.Balance = Balance;
+    }
+
 }

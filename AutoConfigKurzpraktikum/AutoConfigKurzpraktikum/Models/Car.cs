@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Windows.Documents;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -17,7 +18,8 @@ public class Car
     public int CurrentHorsepower {get;set;}
     public double BaseWeight {get;set;}
     public double CurrentWeight {get;set;}
+    
 
-    public List<TuningPart> TuningParts { get; set; } = new ArrayList();
+    public List<TuningPart> TuningParts { get; set; } = new List<TuningPart>();
 
 }

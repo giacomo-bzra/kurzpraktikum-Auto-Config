@@ -5,7 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoConfigKurzpraktikum"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="600">
     <Grid>
+        <Label Content="Auto Configuration:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
+        
+        <TextBox Height="200" Width="350" Background="Black" Text="Placeholder for picture" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
+        <Button Name="ButtonLeft" Content="Left" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30 0 30 0"/>
+        <Button Name="ButtonRight" Content="Right" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="30 0 30 0"/>
+        <Button Name="Select" Content="Select" Height="40" Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 20" />
     </Grid>
 </Window>

@@ -44,7 +44,7 @@ namespace AutoConfigKurzpraktikum {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "10.0.5.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "10.0.3.0")]
         public void InitializeComponent() {
             
             #line 5 "..\..\..\App.xaml"
@@ -59,7 +59,7 @@ namespace AutoConfigKurzpraktikum {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "10.0.5.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "10.0.3.0")]
         public static void Main() {
             AutoConfigKurzpraktikum.App app = new AutoConfigKurzpraktikum.App();
             app.InitializeComponent();

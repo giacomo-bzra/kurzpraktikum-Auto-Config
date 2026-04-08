@@ -8,6 +8,6 @@
         Title="TuneWindow" Height="400" Width="600">
     <Grid>
         <Label Content="Modification:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
-        <Separator ></Separator>
+        <Separator >   </Separator>
     </Grid>
 </Window>

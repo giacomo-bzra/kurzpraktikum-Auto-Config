@@ -5,9 +5,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:AutoConfigKurzpraktikum"
         mc:Ignorable="d"
-        Title="TuneWindow" Height="400" Width="600">
-    <Grid>
-        <Label Content="Modification:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
-        <Separator ></Separator>
-    </Grid>
+        Title="TuneWindow" Height="400" Width="700">
+
+        <StackPanel Orientation="Horizontal">
+                
+                <Grid Width="450">
+                        <GridSplitter Width="2" Background="Black"/>
+                </Grid>
+                
+                
+                
+                <Grid Width="250">
+                        
+                </Grid>
+                
+        </StackPanel>
 </Window>

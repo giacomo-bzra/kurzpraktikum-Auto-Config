@@ -10,13 +10,67 @@
         <StackPanel Orientation="Horizontal">
                 
                 <Grid Width="450">
-                        <GridSplitter Width="2" Background="Black"/>
+                        <GridSplitter Width="2" Background="Black"/> 
+                        
+                        <Label Content="Modification:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
+
+                        <ComboBox Name="Brake" Width="180" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 0 0">
+                                <ComboBoxItem Content="placeholder1"/>
+                                <ComboBoxItem Content="placeholder2"/>
+                                <ComboBoxItem Content="placeholder3"/>
+                        </ComboBox>
+                        
+                        <ComboBox Name="Engine" Width="180" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 100 20 0">
+                                <ComboBoxItem Content="placeholder1"/>
+                                <ComboBoxItem Content="placeholder2"/>
+                                <ComboBoxItem Content="placeholder3"/>
+
+                        </ComboBox>
+                        
+                        <ComboBox Name="Frontspoiler" Width="180" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 20 0">
+                                <ComboBoxItem Content="placeholder1"/>
+                                <ComboBoxItem Content="placeholder2"/>
+                                <ComboBoxItem Content="placeholder3"/>
+
+                        </ComboBox>
+                        
+                        <ComboBox Name="Heckspoiler" Width="180" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 20 0">
+                                <ComboBoxItem Content="placeholder1"/>
+                                <ComboBoxItem Content="placeholder2"/>
+                                <ComboBoxItem Content="placeholder3"/>
+
+                        </ComboBox>
+                        
+                        <ComboBox Name="Rimm" Width="180" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 0 20 100">
+                                <ComboBoxItem Content="placeholder1"/>
+                                <ComboBoxItem Content="placeholder2"/>
+                                <ComboBoxItem Content="placeholder3"/>
+
+                        </ComboBox>
+                        
+                        <ComboBox Name="Tire" Width="180" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 20 100">
+                                <ComboBoxItem Content="placeholder1"/>
+                                <ComboBoxItem Content="placeholder2"/>
+                                <ComboBoxItem Content="placeholder3"/>
+
+                        </ComboBox>
+                        
+                        
+                        <Button Name="Select" Content="Select" Height="40" Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 20" Click="Button_select"/>
+
                 </Grid>
                 
                 
                 
                 <Grid Width="250">
+                        <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                        </Grid.RowDefinitions>
                         
+                        <Border BorderBrush="Black" BorderThickness="0 0 0 2"/>
+                        <Label Content="placeholer picture"/>
+                        <Label Grid.Row="1" Content="placeholder color changer"/>
                 </Grid>
                 
         </StackPanel>

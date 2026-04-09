@@ -1,0 +1,43 @@
+<Window x:Class="AutoConfigKurzpraktikum.Pages.StatsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:AutoConfigKurzpraktikum.Pages"
+        mc:Ignorable="d"
+        Title="StatsWindow" Height="410" Width="700">
+    <StackPanel Orientation="Horizontal">
+        
+        <Grid Width="450">
+            <GridSplitter Width="2" Background="Black"/> 
+            <Label Content="Stats:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
+
+            <Label Content="Speed:" Margin="5 80 0 0"/>
+            <TextBox Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
+            
+            <Label Content="Brake:" Margin="5 160 0 0"/>
+            <TextBox Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
+            
+            <Label Content="Grip:" Margin="5 240 0 0"/>
+            <TextBox Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
+            
+            <Label Content="Weight:" Margin="5 320 0 0"/>
+            <TextBox Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+        </Grid>
+        
+        
+        <Grid Width="250">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+                        
+            <Border BorderBrush="Black" BorderThickness="0 0 0 2"/>
+            <Label Content="placeholer picture"/>
+            <Label Grid.Row="1" Content="placeholder total mone"/>
+            
+            <Button Grid.Row="1" Content="Done" Height="50" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 40 10 10" Click="Button_Done"/>
+        </Grid>
+        
+    </StackPanel>
+</Window>

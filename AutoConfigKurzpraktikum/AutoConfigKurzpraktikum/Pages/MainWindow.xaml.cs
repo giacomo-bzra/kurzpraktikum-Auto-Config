@@ -19,5 +19,13 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        
+    }
+    
+    public void Button_select(object sender, RoutedEventArgs e)
+    {
+            TuneWindow tuneWindow = new TuneWindow();
+            tuneWindow.Show();
+            this.Close();
     }
 }

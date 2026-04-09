@@ -13,6 +13,6 @@
         
         <Button Name="ButtonLeft" Content="Left" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30 0 30 0"/>
         <Button Name="ButtonRight" Content="Right" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="30 0 30 0"/>
-        <Button Name="Select" Content="Select" Height="40" Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 20" />
+        <Button Name="Select" Content="Select" Height="40" Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 20" Click="Button_select"/>
     </Grid>
 </Window>

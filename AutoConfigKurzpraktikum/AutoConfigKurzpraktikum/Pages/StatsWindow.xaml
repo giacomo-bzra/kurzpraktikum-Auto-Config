@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:AutoConfigKurzpraktikum.Pages"
         mc:Ignorable="d"
         Title="StatsWindow" Height="410" Width="700">
-    <StackPanel Orientation="Horizontal">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/> <ColumnDefinition Width="*"/>   </Grid.ColumnDefinitions>
         
-        <Grid Width="450">
-            <GridSplitter Width="2" Background="Black"/> 
+        <Grid Grid.Column="0"> 
+            <GridSplitter Width="2" Background="Black" HorizontalAlignment="Right"/> 
             <Label Content="Stats:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
 
             <Label Content="Speed:" Margin="5 80 0 0"/>
@@ -25,19 +28,19 @@
             <TextBox Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
         </Grid>
         
-        
-        <Grid Width="250">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+        <Grid Grid.Column="1">
+             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
                         
-            <Border BorderBrush="Black" BorderThickness="0 0 0 2"/>
+            <Border Grid.Row="1" BorderBrush="Black" VerticalAlignment="Center" BorderThickness="0 0 0 2"/> 
             <Label Content="placeholer picture"/>
-            <Label Grid.Row="1" Content="placeholder total mone"/>
+            <Label Grid.Row="2" Content="placeholder total mone"/>
             
-            <Button Grid.Row="1" Content="Done" Height="50" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 40 10 10" Click="Button_Done"/>
+            <Button Grid.Row="2" Content="Done" Height="50" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 40 10 10" Click="Button_Done"/>
         </Grid>
         
-    </StackPanel>
+    </Grid>
 </Window>

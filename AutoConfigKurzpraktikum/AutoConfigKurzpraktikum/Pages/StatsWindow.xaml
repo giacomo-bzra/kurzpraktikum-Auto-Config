@@ -1,0 +1,62 @@
+<Window x:Class="AutoConfigKurzpraktikum.Pages.StatsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:AutoConfigKurzpraktikum.Pages"
+        mc:Ignorable="d"
+        Title="StatsWindow" Height="410" Width="700">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/> <ColumnDefinition Width="*"/>   </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0"> 
+            <GridSplitter Width="2" Background="Black" HorizontalAlignment="Right"/> 
+            <Label Content="Stats:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
+
+            <Label Content="Speed:" Margin="5 80 0 0"/>
+            <Rectangle Name="Speed5" Tag="5" Stroke="Black" Fill="White" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
+            <Rectangle Name="Speed4" Tag="4" Stroke="Black" Fill="White" Height="25" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
+            <Rectangle Name="Speed3" Tag="3" Stroke="Black" Fill="White" Height="25" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
+            <Rectangle Name="Speed2" Tag="2" Stroke="Black" Fill="White" Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
+            <Rectangle Name="Speed1" Tag="1" Stroke="Black" Fill="White" Height="25" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
+
+            <Label Content="Brake:" Margin="5 160 0 0"/>
+            <Rectangle Name="Brake5" Tag="5" Stroke="Black" Fill="White" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
+            <Rectangle Name="Brake4" Tag="4" Stroke="Black" Fill="White" Height="25" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
+            <Rectangle Name="Brake3" Tag="3" Stroke="Black" Fill="White" Height="25" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
+            <Rectangle Name="Brake2" Tag="2" Stroke="Black" Fill="White" Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
+            <Rectangle Name="Brake1" Tag="1" Stroke="Black" Fill="White" Height="25" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
+
+            <Label Content="Grip:" Margin="5 240 0 0"/>
+            <Rectangle Name="Grip5" Tag="5" Stroke="Black" Fill="White" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
+            <Rectangle Name="Grip4" Tag="4" Stroke="Black" Fill="White" Height="25" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
+            <Rectangle Name="Grip3" Tag="3" Stroke="Black" Fill="White" Height="25" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
+            <Rectangle Name="Grip2" Tag="2" Stroke="Black" Fill="White" Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
+            <Rectangle Name="Grip1" Tag="1" Stroke="Black" Fill="White" Height="25" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
+            
+            <Label Content="Weight:" Margin="5 320 0 0"/>
+            <Rectangle Name="Weight5" Tag="5" Stroke="Black" Fill="White" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+            <Rectangle Name="Weight4" Tag="4" Stroke="Black" Fill="White" Height="25" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+            <Rectangle Name="Weight3" Tag="3" Stroke="Black" Fill="White" Height="25" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+            <Rectangle Name="Weight2" Tag="2" Stroke="Black" Fill="White" Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+            <Rectangle Name="Weight1" Tag="1" Stroke="Black" Fill="White" Height="25" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+        </Grid>
+        
+        <Grid Grid.Column="1">
+             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+                        
+            <Border Grid.Row="1" BorderBrush="Black" VerticalAlignment="Center" BorderThickness="0 0 0 2"/> 
+            <Label Content="placeholer picture"/>
+            <Label Grid.Row="2" Content="placeholder total mone"/>
+            
+            <Button Grid.Row="2" Content="Done" Height="50" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 40 0 0" Click="Button_Done"/>
+        </Grid>
+        
+    </Grid>
+</Window>

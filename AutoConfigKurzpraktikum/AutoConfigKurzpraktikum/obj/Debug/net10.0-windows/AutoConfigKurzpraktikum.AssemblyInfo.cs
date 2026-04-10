@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AutoConfigKurzpraktikum")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe4b4f30bb094ab5cc6ea9608ee7b4797608ebd3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d22476039c3d151505f8fd9329f4f3b14f5506c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AutoConfigKurzpraktikum")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AutoConfigKurzpraktikum")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

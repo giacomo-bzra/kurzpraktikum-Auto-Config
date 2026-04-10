@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\samib\\Documents\\IMS\\Kurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum.csproj": {}
+    "C:\\Users\\samib\\Documents\\IMS\\kurzpraktikum-Auto-Config\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum.csproj": {}
   },
   "projects": {
-    "C:\\Users\\samib\\Documents\\IMS\\Kurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum.csproj": {
+    "C:\\Users\\samib\\Documents\\IMS\\kurzpraktikum-Auto-Config\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\samib\\Documents\\IMS\\Kurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum.csproj",
+        "projectUniqueName": "C:\\Users\\samib\\Documents\\IMS\\kurzpraktikum-Auto-Config\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum.csproj",
         "projectName": "AutoConfigKurzpraktikum",
-        "projectPath": "C:\\Users\\samib\\Documents\\IMS\\Kurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum.csproj",
+        "projectPath": "C:\\Users\\samib\\Documents\\IMS\\kurzpraktikum-Auto-Config\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum.csproj",
         "packagesPath": "C:\\Users\\samib\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\samib\\Documents\\IMS\\Kurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\obj\\",
+        "outputPath": "C:\\Users\\samib\\Documents\\IMS\\kurzpraktikum-Auto-Config\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\samib\\AppData\\Roaming\\NuGet\\NuGet.Config",

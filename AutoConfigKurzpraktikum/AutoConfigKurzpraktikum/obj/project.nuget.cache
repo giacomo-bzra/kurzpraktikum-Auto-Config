@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CAU7p33yfaM=",
+  "dgSpecHash": "89hzDn9KKbA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\samib\\Documents\\IMS\\Kurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum.csproj",
+  "projectFilePath": "C:\\Users\\samib\\Documents\\IMS\\kurzpraktikum-Auto-Config\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum\\AutoConfigKurzpraktikum.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\samib\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\samib\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",

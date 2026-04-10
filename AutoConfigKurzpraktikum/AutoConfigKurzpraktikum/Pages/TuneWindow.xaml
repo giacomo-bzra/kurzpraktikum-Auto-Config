@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:AutoConfigKurzpraktikum"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="TuneWindow" Height="400" Width="700">
 
@@ -16,36 +17,42 @@
             
             <Label Content="Modification:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
 
+            <Label Content="Brake:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15 80 0 0"/>
             <ComboBox Name="Brake" Width="180" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 0 0">
                 <ComboBoxItem Content="placeholder1"/>
                 <ComboBoxItem Content="placeholder2"/>
                 <ComboBoxItem Content="placeholder3"/>
             </ComboBox>
             
+            <Label Content="Engine:" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 80 155 0"/>
             <ComboBox Name="Engine" Width="180" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 100 20 0">
                 <ComboBoxItem Content="placeholder1"/>
                 <ComboBoxItem Content="placeholder2"/>
                 <ComboBoxItem Content="placeholder3"/>
             </ComboBox>
             
+            <Label Content="Frontspoiler:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 -40 20 0"/>
             <ComboBox Name="Frontspoiler" Width="180" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 20 0">
                 <ComboBoxItem Content="placeholder1"/>
                 <ComboBoxItem Content="placeholder2"/>
                 <ComboBoxItem Content="placeholder3"/>
             </ComboBox>
             
+            <Label Content="Heckspoiler:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 -40 130 0"/>
             <ComboBox Name="Heckspoiler" Width="180" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 20 0">
                 <ComboBoxItem Content="placeholder1"/>
                 <ComboBoxItem Content="placeholder2"/>
                 <ComboBoxItem Content="placeholder3"/>
             </ComboBox>
             
+            <Label Content="Rimm:" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15 0 20 120"/>
             <ComboBox Name="Rimm" Width="180" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 0 20 100">
                 <ComboBoxItem Content="placeholder1"/>
                 <ComboBoxItem Content="placeholder2"/>
                 <ComboBoxItem Content="placeholder3"/>
             </ComboBox>
             
+            <Label Content="Tire:" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 170 120"/>
             <ComboBox Name="Tire" Width="180" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 20 100">
                 <ComboBoxItem Content="placeholder1"/>
                 <ComboBoxItem Content="placeholder2"/>
@@ -64,7 +71,9 @@
             <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0 0 0 2" VerticalAlignment="Center"/>
             
             <Label Grid.Row="0" Content="placeholer picture"/>
-            <Label Grid.Row="2" Content="placeholder color changer"/>
+
+            <Label Grid.Row="2" Content="Color:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 0 0 0"/>
+            <xctk:ColorPicker Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0 20 0 0"/>
         </Grid>
         
     </Grid>

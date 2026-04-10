@@ -16,32 +16,17 @@
             <Label Content="Stats:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
 
             <Label Content="Speed:" Margin="5 80 0 0"/>
-            <Rectangle Name="Speed5" Tag="5" Stroke="Black" Fill="White" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
-            <Rectangle Name="Speed4" Tag="4" Stroke="Black" Fill="White" Height="25" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
-            <Rectangle Name="Speed3" Tag="3" Stroke="Black" Fill="White" Height="25" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
-            <Rectangle Name="Speed2" Tag="2" Stroke="Black" Fill="White" Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
-            <Rectangle Name="Speed1" Tag="1" Stroke="Black" Fill="White" Height="25" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
-
+            <ProgressBar Name="SpeedBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 100 0 0"/>
+          
             <Label Content="Brake:" Margin="5 160 0 0"/>
-            <Rectangle Name="Brake5" Tag="5" Stroke="Black" Fill="White" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
-            <Rectangle Name="Brake4" Tag="4" Stroke="Black" Fill="White" Height="25" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
-            <Rectangle Name="Brake3" Tag="3" Stroke="Black" Fill="White" Height="25" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
-            <Rectangle Name="Brake2" Tag="2" Stroke="Black" Fill="White" Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
-            <Rectangle Name="Brake1" Tag="1" Stroke="Black" Fill="White" Height="25" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
-
-            <Label Content="Grip:" Margin="5 240 0 0"/>
-            <Rectangle Name="Grip5" Tag="5" Stroke="Black" Fill="White" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
-            <Rectangle Name="Grip4" Tag="4" Stroke="Black" Fill="White" Height="25" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
-            <Rectangle Name="Grip3" Tag="3" Stroke="Black" Fill="White" Height="25" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
-            <Rectangle Name="Grip2" Tag="2" Stroke="Black" Fill="White" Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
-            <Rectangle Name="Grip1" Tag="1" Stroke="Black" Fill="White" Height="25" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
+            <ProgressBar Name="BrakeBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
             
+            <Label Content="Grip:" Margin="5 240 0 0"/>
+            <ProgressBar Name="GripBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
+           
             <Label Content="Weight:" Margin="5 320 0 0"/>
-            <Rectangle Name="Weight5" Tag="5" Stroke="Black" Fill="White" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
-            <Rectangle Name="Weight4" Tag="4" Stroke="Black" Fill="White" Height="25" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
-            <Rectangle Name="Weight3" Tag="3" Stroke="Black" Fill="White" Height="25" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
-            <Rectangle Name="Weight2" Tag="2" Stroke="Black" Fill="White" Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
-            <Rectangle Name="Weight1" Tag="1" Stroke="Black" Fill="White" Height="25" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+            <ProgressBar Name="WeightBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+            
         </Grid>
         
         <Grid Grid.Column="1">

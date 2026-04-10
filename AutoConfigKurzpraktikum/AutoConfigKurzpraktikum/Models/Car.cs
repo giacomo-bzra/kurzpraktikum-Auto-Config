@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Windows.Documents;
+using AutoConfigKurzpraktikum.Models.Parts;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 

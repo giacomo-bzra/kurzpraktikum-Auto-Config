@@ -22,7 +22,7 @@ public partial class StatsWindow : Window
     }
 
 
-    private int stuffe = 1;
+    private int stuffe = 2;
     private void SpeedStat(int stuffe)
     {
         Speed1.Fill = Brushes.Transparent;

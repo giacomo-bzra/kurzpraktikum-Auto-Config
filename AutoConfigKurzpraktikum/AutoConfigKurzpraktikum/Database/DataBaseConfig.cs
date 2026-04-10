@@ -19,5 +19,4 @@ public static class DataBaseConfig
         BsonClassMap.RegisterClassMap<Frontspoiler>();
         
     }
-    
 }

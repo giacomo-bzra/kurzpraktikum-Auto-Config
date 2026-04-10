@@ -25,4 +25,12 @@
       </Page>
     </ItemGroup>
 
+    <ItemGroup>
+      <ApplicationDefinition Include="Pages\App.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </ApplicationDefinition>
+    </ItemGroup>
+
 </Project>

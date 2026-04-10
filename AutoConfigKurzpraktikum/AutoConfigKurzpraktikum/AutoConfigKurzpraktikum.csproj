@@ -25,4 +25,10 @@
       </Page>
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Pages\StatsWindow.xaml.cs">
+        <DependentUpon>StatsWindow.xaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

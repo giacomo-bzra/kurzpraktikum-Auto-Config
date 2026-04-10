@@ -12,6 +12,12 @@ public partial class StatsWindow : Window
         Progresses();
     }
 
+
+
+    public void Button_Done(object sender, RoutedEventArgs e) {
+        this.Close();
+    }
+
     private int speed = 300;
     private int Brake = 220;
     private int Grip = 700;
@@ -25,11 +31,5 @@ public partial class StatsWindow : Window
         GripBar.Value = Grip;
         WeightBar.Value = Weight;
     }
-
-    public void Button_Done(object sender, RoutedEventArgs e) {
-        this.Close();
-    }
-
-
     
     }

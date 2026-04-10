@@ -26,7 +26,7 @@ public class User
 
     public void AddCar(Car newCar)
     {
-        if (newCar == null)
+        if (newCar != null)
         {
             this.Cars.Add(newCar);
         }

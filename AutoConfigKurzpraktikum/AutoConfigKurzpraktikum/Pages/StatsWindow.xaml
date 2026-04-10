@@ -26,6 +26,7 @@
            
             <Label Content="Weight:" Margin="5 320 0 0"/>
             <ProgressBar Name="WeightBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+
         </Grid>
         
         <Grid Grid.Column="1">

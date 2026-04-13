@@ -18,46 +18,22 @@
             <Label Content="Modification:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
 
             <Label Content="Brake:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15 80 0 0"/>
-            <ComboBox Name="Brake" Width="180" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 0 0">
-                <ComboBoxItem Content="placeholder1"/>
-                <ComboBoxItem Content="placeholder2"/>
-                <ComboBoxItem Content="placeholder3"/>
-            </ComboBox>
+            <ComboBox Name="Brake" Width="180" Height="25" ItemsSource="{Binding BrakeOptions}" DisplayMemberPath="Name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 0 0"/>
             
             <Label Content="Engine:" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 80 155 0"/>
-            <ComboBox Name="Engine" Width="180" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 100 20 0">
-                <ComboBoxItem Content="placeholder1"/>
-                <ComboBoxItem Content="placeholder2"/>
-                <ComboBoxItem Content="placeholder3"/>
-            </ComboBox>
+            <ComboBox Name="Engine" Width="180" Height="25" ItemsSource="{Binding EngineOptions}" DisplayMemberPath="Name" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 100 20 0"/>
             
             <Label Content="Frontspoiler:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 -40 20 0"/>
-            <ComboBox Name="Frontspoiler" Width="180" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 20 0">
-                <ComboBoxItem Content="placeholder1"/>
-                <ComboBoxItem Content="placeholder2"/>
-                <ComboBoxItem Content="placeholder3"/>
-            </ComboBox>
+            <ComboBox Name="Frontspoiler" Width="180" Height="25" ItemsSource="{Binding FrontspoilerOptons}" DisplayMemberPath="Name" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 20 0"/>
             
             <Label Content="Heckspoiler:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 -40 130 0"/>
-            <ComboBox Name="Heckspoiler" Width="180" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 20 0">
-                <ComboBoxItem Content="placeholder1"/>
-                <ComboBoxItem Content="placeholder2"/>
-                <ComboBoxItem Content="placeholder3"/>
-            </ComboBox>
+            <ComboBox Name="Heckspoiler" Width="180" Height="25" ItemsSource="{Binding HeckspoilerOptions}" DisplayMemberPath="Name" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 20 0"/>
             
             <Label Content="Rimm:" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15 0 20 120"/>
-            <ComboBox Name="Rimm" Width="180" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 0 20 100">
-                <ComboBoxItem Content="placeholder1"/>
-                <ComboBoxItem Content="placeholder2"/>
-                <ComboBoxItem Content="placeholder3"/>
-            </ComboBox>
+            <ComboBox Name="Rimm" Width="180" Height="25" ItemsSource="{Binding RimmOptions}" DisplayMemberPath="Name" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 0 20 100"/>
             
             <Label Content="Tire:" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 170 120"/>
-            <ComboBox Name="Tire" Width="180" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 20 100">
-                <ComboBoxItem Content="placeholder1"/>
-                <ComboBoxItem Content="placeholder2"/>
-                <ComboBoxItem Content="placeholder3"/>
-            </ComboBox>
+            <ComboBox Name="Tire" Width="180" Height="25" ItemsSource="{Binding TireOptions}" DisplayMemberPath="Name" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 20 100"/>
             
             <Button Name="Select" Content="Select" Height="40" Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 20" Click="Button_select"/>
         </Grid>

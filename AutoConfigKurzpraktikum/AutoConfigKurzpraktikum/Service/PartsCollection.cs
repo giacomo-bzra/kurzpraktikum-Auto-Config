@@ -100,30 +100,42 @@ public class PartsCollection
         // ── Tires ────────────────────────────────────────────────────────────
         new Tire(ObjectId.GenerateNewId().ToString(),
             "Slick Race-Reifen",    price: 600,    weight: 7.0, isInstalled: false,
-            color: "Schwarz",       tireType: Models.Parts.Type.Race,   thickness: 25),
+            color: "Schwarz",       tireType: Models.Parts.Type.Race,   thickness: 25, 40),
 
         new Tire(ObjectId.GenerateNewId().ToString(),
             "Drift-Reifen",         price: 450,    weight: 8.5, isInstalled: false,
-            color: "Schwarz",       tireType: Models.Parts.Type.Drift,  thickness: 30),
+            color: "Schwarz",       tireType: Models.Parts.Type.Drift,  thickness: 30, 10),
 
         new Tire(ObjectId.GenerateNewId().ToString(),
             "Offroad-Reifen",       price: 500,    weight: 12.0,isInstalled: false,
-            color: "Schwarz",       tireType: Models.Parts.Type.Offroad,thickness: 45),
+            color: "Schwarz",       tireType: Models.Parts.Type.Offroad,thickness: 45, 35),
         
         new Tire(ObjectId.GenerateNewId().ToString(),
             name: "Allwetter-Performance", price: 250, weight: 9.5, isInstalled: false,
-            color: "Schwarz", tireType: Models.Parts.Type.Drift, thickness: 35),
+            color: "Schwarz", tireType: Models.Parts.Type.Drift, thickness: 35, 25),
 
         new Tire(ObjectId.GenerateNewId().ToString(),
             name: "Pro-Rain Wet-Slick", price: 550, weight: 7.5, isInstalled: false,
-            color: "Schwarz", tireType: Models.Parts.Type.Race, thickness: 28),
+            color: "Schwarz", tireType: Models.Parts.Type.Race, thickness: 28, 50),
 
         new Tire(ObjectId.GenerateNewId().ToString(),
             name: "Extreme-Grip Winter", price: 320, weight: 10.5, isInstalled: false,
-            color: "Schwarz", tireType: Models.Parts.Type.Offroad, thickness: 40),
+            color: "Schwarz", tireType: Models.Parts.Type.Offroad, thickness: 40, 60),
+        
+        new Tire(ObjectId.GenerateNewId().ToString(),
+            name: "Derby-Tires", price: 550, weight: 7.5, isInstalled: false,
+            color: "Schwarz", tireType: Models.Parts.Type.Derby, thickness: 28, 80),
+
+        new Tire(ObjectId.GenerateNewId().ToString(),
+            name: "Relley-Tires", price: 320, weight: 10.5, isInstalled: false,
+            color: "Schwarz", tireType: Models.Parts.Type.Ralley, 60, 35),
+        
+        new Tire(ObjectId.GenerateNewId().ToString(),
+            name: "Relley-Tires", price: 320, weight: 10.5, isInstalled: false,
+            color: "Schwarz", tireType: Models.Parts.Type.Drag, 60, 100),
     };
 }
-   
+
 
 
    

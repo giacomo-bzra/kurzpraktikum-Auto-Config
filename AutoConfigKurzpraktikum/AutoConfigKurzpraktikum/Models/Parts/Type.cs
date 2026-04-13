@@ -6,5 +6,6 @@ public enum Type
    Drift,
    Race,
    Ralley,
-   Derby
+   Derby,
+   Drag
 }

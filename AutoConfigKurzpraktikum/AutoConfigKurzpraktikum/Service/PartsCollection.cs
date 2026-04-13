@@ -17,19 +17,19 @@ public class PartsCollection
         // ── Engines ──────────────────────────────────────────────────────────
         new Engine(ObjectId.GenerateNewId().ToString(),
             "Sport-Motor 400 PS",   price: 8_500,  weight: 180, isInstalled: false,
-            color: "Silber",        fuelConsumption: 9.5),
+            color: "Silber",        fuelConsumption: 9.5, 400),
 
         new Engine(ObjectId.GenerateNewId().ToString(),
             "Turbo-Motor 600 PS",   price: 18_000, weight: 210, isInstalled: false,
-            color: "Schwarz",       fuelConsumption: 13.0),
+            color: "Schwarz",       fuelConsumption: 13.0, 600),
         
         new Engine(ObjectId.GenerateNewId().ToString(),
             name: "V8-Biturbo 800 PS", price: 35_000, weight: 240, isInstalled: false,
-            color: "Gold/Schwarz", fuelConsumption: 18.5),
+            color: "Gold/Schwarz", fuelConsumption: 18.5, 800),
 
         new Engine(ObjectId.GenerateNewId().ToString(),
             name: "Elektro-Antrieb Unit X", price: 22_500, weight: 150, isInstalled: false,
-            color: "Neon-Blau", fuelConsumption: 0.0),
+            color: "Neon-Blau", fuelConsumption: 0.0, 450),
 
         // ── Brakes ───────────────────────────────────────────────────────────
         new Brake(ObjectId.GenerateNewId().ToString(),
@@ -71,16 +71,16 @@ public class PartsCollection
             color: "Schwarz",       downforce: 120),
 
         new Heckspoiler(ObjectId.GenerateNewId().ToString(),
-            "Racing-Wing",          price: 2_200,  weight: 6.8, isInstalled: false,
+            "Racing-Wing",          price: 2200,  weight: 6.8, isInstalled: false,
             color: "Carbon",        downforce: 250),
         
         new Heckspoiler(ObjectId.GenerateNewId().ToString(),
-            name: "Dragster-Wing High-Downforce", price: 2_100, weight: 6.5, isInstalled: false,
+            name: "Dragster-Wing High-Downforce", price: 2100, weight: 6.5, isInstalled: false,
             color: "Carbon", downforce: 350),
 
         new Heckspoiler(ObjectId.GenerateNewId().ToString(),
             name: "Dezente Abrisskante", price: 250, weight: 1.2, isInstalled: false,
-            color: "Schwarz-Glanz", downforce: 15),
+            color: "Schwarz-Glanz", downforce: 150),
 
         // ── Rims ─────────────────────────────────────────────────────────────
         new Rimm(ObjectId.GenerateNewId().ToString(),
@@ -139,7 +139,28 @@ public class PartsCollection
         new Tire(ObjectId.GenerateNewId().ToString(),
             name: "Drag-Tires", price: 320, weight: 10.5, isInstalled: false,
             color: "Schwarz", tireType: Models.Parts.Type.Drag, 60, 100),
+        
+        
+        // --- Basic BMW Parts ---
+        new Engine(ObjectId.GenerateNewId().ToString(), name: "Standart V6", price: 0, weight: 300, isInstalled: false, color: "Black", fuelConsumption: 10.5, horsePower: 100),
+        new Brake(ObjectId.GenerateNewId().ToString(), name: "Basis Lippe", price: 0, weight: 5.0, isInstalled: false, color: "Black", brakeforce: 100),
+        new Frontspoiler(ObjectId.GenerateNewId().ToString(), name: "Basic Front", price: 0, weight: 10, isInstalled: false, color: "Black", downforce: 70),
+        new Heckspoiler(ObjectId.GenerateNewId().ToString(), name: "Basis Heck", price: 0, weight: 10, isInstalled: false, color: "Black", downforce: 70),
+        new Tire(ObjectId.GenerateNewId().ToString(), name: "Basic Tire", price: 0, weight: 5, isInstalled: false, color: "Black", Type.Race, thickness: 5, grip: 15),
+        new Rimm(ObjectId.GenerateNewId().ToString(), name: "Basis Rimm", price: 0, weight: 5, isInstalled: false, color: "Black", diameter: 50),
+
+        // --- Rusty Base Parts ---
+        new Engine(ObjectId.GenerateNewId().ToString(), name: "Lawnmower Engine", price: 0, weight: 80, isInstalled: false, color: "Rusty Brown", fuelConsumption: 5.0, horsePower: 45),
+        new Brake(ObjectId.GenerateNewId().ToString(), name: "Old Drum Brakes", price: 0, weight: 15.0, isInstalled: false, color: "Grey", brakeforce: 30),
+        new Frontspoiler(ObjectId.GenerateNewId().ToString(), name: "Plastic Lip", price: 0, weight: 2, isInstalled: false, color: "Black", downforce: 5),
+        new Heckspoiler(ObjectId.GenerateNewId().ToString(), name: "Small Ducktail", price: 0, weight: 3, isInstalled: false, color: "Black", downforce: 5),
+        new Tire(ObjectId.GenerateNewId().ToString(), name: "Thin Eco Tire", price: 0, weight: 4, isInstalled: false, color: "Black", Type.Race, thickness: 3, grip: 10),
+        new Rimm(ObjectId.GenerateNewId().ToString(), name: "Steel Rims", price: 0, weight: 12, isInstalled: false, color: "Silver", diameter: 13)
     };
+    
+ 
+
+
 }
 
 

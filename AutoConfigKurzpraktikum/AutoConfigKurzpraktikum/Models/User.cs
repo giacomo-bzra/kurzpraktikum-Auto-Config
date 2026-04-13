@@ -23,12 +23,4 @@ public class User
         this.Password = Password;
         this.Balance = Balance;
     }
-
-    public void AddCar(Car newCar)
-    {
-        if (newCar != null)
-        {
-            this.Cars.Add(newCar);
-        }
-    }
 }

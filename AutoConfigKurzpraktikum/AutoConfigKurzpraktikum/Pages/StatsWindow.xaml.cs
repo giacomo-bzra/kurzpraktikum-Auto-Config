@@ -18,7 +18,6 @@ public partial class StatsWindow : Window
         this.Close();
     }
 
-    
     private int speed = 300;
     private int Brake = 220;
     private int Grip = 700;
@@ -32,4 +31,5 @@ public partial class StatsWindow : Window
         GripBar.Value = Grip;
         WeightBar.Value = Weight;
     }
+    
     }

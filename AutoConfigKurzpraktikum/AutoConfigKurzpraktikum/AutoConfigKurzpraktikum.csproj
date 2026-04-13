@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Extended.Wpf.Toolkit" Version="5.0.0" />
       <PackageReference Include="MongoDB.Driver" Version="3.7.1" />
     </ItemGroup>
 
@@ -23,6 +24,12 @@
         <XamlRuntime>Wpf</XamlRuntime>
         <SubType>Designer</SubType>
       </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Pages\StatsWindow.xaml.cs">
+        <DependentUpon>StatsWindow.xaml</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

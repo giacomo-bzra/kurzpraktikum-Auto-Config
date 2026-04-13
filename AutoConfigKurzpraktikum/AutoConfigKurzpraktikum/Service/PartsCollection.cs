@@ -5,6 +5,12 @@ using MongoDB.Bson;
 public class PartsCollection
 {
      public static IReadOnlyList<TuningPart> All => _parts.AsReadOnly();
+     public static List<Tire> AllTires => _parts.OfType<Tire>().ToList();
+     public static List<Brake> AllBrakes => _parts.OfType<Brake>().ToList();
+     public static List<Frontspoiler> AllFrontspoilers => _parts.OfType<Frontspoiler>().ToList();
+     public static List<Heckspoiler> AllHeckspoilers => _parts.OfType<Heckspoiler>().ToList();
+     public static List<Rimm> AllRimms => _parts.OfType<Rimm>().ToList();
+     public static List<Engine> AllEngines => _parts.OfType<Engine>().ToList();
 
     private static readonly List<TuningPart> _parts = new()
     {
@@ -131,7 +137,7 @@ public class PartsCollection
             color: "Schwarz", tireType: Models.Parts.Type.Ralley, 60, 35),
         
         new Tire(ObjectId.GenerateNewId().ToString(),
-            name: "Relley-Tires", price: 320, weight: 10.5, isInstalled: false,
+            name: "Drag-Tires", price: 320, weight: 10.5, isInstalled: false,
             color: "Schwarz", tireType: Models.Parts.Type.Drag, 60, 100),
     };
 }

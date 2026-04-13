@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Ink;
 using System.Windows.Media;
+using AutoConfigKurzpraktikum.Models.Parts;
 
 namespace AutoConfigKurzpraktikum.Pages;
 
@@ -23,7 +24,12 @@ public partial class StatsWindow : Window
     private int Grip = 700;
     private int Weight = 800;
     private int Cost = 500;
-    
+
+    public StatsWindow(Tire selectedTire, Brake selectedBrake, Engine selectedEngine, Frontspoiler selectedFrontspoiler, Heckspoiler selectedHeckspoiler, Rimm selectedRimm)
+    {
+        throw new NotImplementedException();
+    }
+
     private void Progresses()
     {
         SpeedBar.Value = speed;

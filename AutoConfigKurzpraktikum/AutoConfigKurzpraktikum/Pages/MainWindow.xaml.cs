@@ -50,7 +50,7 @@ public partial class MainWindow : Window
     
     public void Button_select(object sender, RoutedEventArgs e)
     {
-            TuneWindow tuneWindow = new TuneWindow();
+            TuneWindow tuneWindow = new TuneWindow(CurrentCar, _currentCarIndex);
             tuneWindow.Show();
             this.Close();
     }

@@ -7,6 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600">
     <Grid>
-
+        <Label Content="Auto Select:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
+        
+        <ListBox ItemsSource="{Binding BaseCar}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="Auto" Width="Auto" Margin="0 70 0 70">
+            
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Height="50" Width="50" Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="DarkGray"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Padding" Value="5"/>
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        
+        <Button Content="Create New" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="350 0 0 15" Click="Button_CreateNew"/>
+        <Button Content="Edit" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 0 15" Click="Button_Edit"/>
+        <Button Content="Delete" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 350 15" Click="Button_Delete"/>
     </Grid>
 </Window>

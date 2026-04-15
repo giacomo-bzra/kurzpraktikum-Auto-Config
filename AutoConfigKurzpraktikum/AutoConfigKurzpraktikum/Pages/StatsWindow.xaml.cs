@@ -32,6 +32,8 @@ public partial class StatsWindow : Window
 
     public void Button_Done(object sender, RoutedEventArgs e)
     {
+        MainWindow mainWindow = new MainWindow();
+        mainWindow.Show();
         this.Close();
     }
 

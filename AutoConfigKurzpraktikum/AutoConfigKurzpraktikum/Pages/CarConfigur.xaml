@@ -17,6 +17,7 @@
         <Button Name="ButtonRight" Content="Right" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="30 0 30 0" Click="Button_Right"/>
         <Button Name="Select" Content="Select" Height="40" Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 20" Click="Button_select"/>
         
+        
         <Label Name="count" Content="" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16"/>
     </Grid>
 </Window>

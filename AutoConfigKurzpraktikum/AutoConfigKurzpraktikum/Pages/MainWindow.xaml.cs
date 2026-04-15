@@ -41,4 +41,9 @@ public partial class MainWindow : Window
     {
         
     }
+
+    public void Button_Close(object sender, RoutedEventArgs e)
+    {
+        this.Close();
+    }
 }

@@ -34,5 +34,7 @@
         <Button Content="Create New" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="350 0 0 15" Click="Button_CreateNew"/>
         <Button Content="Edit" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 0 15" Click="Button_Edit"/>
         <Button Content="Delete" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 350 15" Click="Button_Delete"/>
+        <Button Content="Close" Height="40" Width="40" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 5 5 0" Background="DarkRed" Foreground="White" Click="Button_Close"/>
+
     </Grid>
 </Window>

@@ -43,13 +43,21 @@ public partial class TuneWindow : Window
         _currentCar = currentCar;
         _currentCarIndex = currentCarIndex;
         
-        Update();
+        if (_currentCarIndex % 2 == 0)
+        {
+            ColorAuswahl.SelectedColor = Colors.SteelBlue;
+        }
+        else
+        {
+            ColorAuswahl.SelectedColor = Colors.SaddleBrown;
+        }
 
         this.DataContext = this;
+        
+        Update();
     }
     
-
-
+    
     public void Button_select(object sender, RoutedEventArgs e)
     {
         StatsWindow statsWindow = new StatsWindow(SelectedTire, SelectedBrake, SelectedEngine, SelectedFrontspoiler,
@@ -58,24 +66,30 @@ public partial class TuneWindow : Window
         this.Close();
     }
 
-
+    public void ColorUpdate(object sender, RoutedEventArgs e)
+    {
+        Update();
+    }
 
     private void Update()
     {
-
+        Color gewählteFarbe = ColorAuswahl.SelectedColor ?? Colors.SteelBlue;
+        Brush autoPinsel = new SolidColorBrush(gewählteFarbe);
+        
+        AutoBild.Children.Clear();
+    
         if (_currentCarIndex % 2 == 0)
         {
-            AutoBild.Children.Clear();
             Polygon MittelKörper = new Polygon();
             MittelKörper.Points = new PointCollection
             {
                 new Point(25, 60), new Point(175, 60), new Point(180, 55),
                 new Point(185, 40), new Point(170, 35), new Point(60, 35), new Point(30, 40)
             };
-            MittelKörper.Fill = Brushes.SteelBlue;
+            MittelKörper.Fill = autoPinsel; // Hier den Pinsel nutzen
             MittelKörper.Stroke = Brushes.Black;
             MittelKörper.StrokeThickness = 2;
-
+    
             Polygon Fenster = new Polygon();
             Fenster.Points = new PointCollection
             {
@@ -83,7 +97,7 @@ public partial class TuneWindow : Window
             };
             Fenster.Fill = Brushes.LightBlue;
             Fenster.Stroke = Brushes.Black;
-
+    
             Polygon Spoler = new Polygon();
             Spoler.Points = new PointCollection
             {
@@ -92,42 +106,25 @@ public partial class TuneWindow : Window
             Spoler.Fill = Brushes.Black;
             Spoler.Stroke = Brushes.Black;
             Spoler.StrokeThickness = 2;
-
-            Ellipse Wheel1 = new Ellipse();
-            Wheel1.Width = 30;
-            Wheel1.Height = 30;
-            Wheel1.Fill = Brushes.Silver;
-            Wheel1.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel1, 35);
-            Canvas.SetTop(Wheel1, 45);
-
-            Ellipse Wheel2 = new Ellipse();
-            Wheel2.Width = 30;
-            Wheel2.Height = 30;
-            Wheel2.Fill = Brushes.Silver;
-            Wheel2.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel2, 135);
-            Canvas.SetTop(Wheel2, 45);
-
-            AutoBild.Children.Add(Wheel1);
-            AutoBild.Children.Add(Wheel2);
+    
+            ZeichneRäder();
+    
             AutoBild.Children.Add(MittelKörper);
             AutoBild.Children.Add(Fenster);
             AutoBild.Children.Add(Spoler);
         }
         else
         {
-            AutoBild.Children.Clear();
             Polygon MittelKörper = new Polygon();
             MittelKörper.Points = new PointCollection
             {
                 new Point(15, 60), new Point(185, 60), new Point(185, 40), new Point(170, 35), new Point(60, 35),
                 new Point(15, 40)
             };
-            MittelKörper.Fill = Brushes.SaddleBrown;
+            MittelKörper.Fill = autoPinsel;
             MittelKörper.Stroke = Brushes.Black;
             MittelKörper.StrokeThickness = 2;
-
+    
             Polygon Fenster = new Polygon();
             Fenster.Points = new PointCollection
             {
@@ -135,7 +132,7 @@ public partial class TuneWindow : Window
             };
             Fenster.Fill = Brushes.LightBlue;
             Fenster.Stroke = Brushes.Black;
-
+    
             Polygon Spoler = new Polygon();
             Spoler.Points = new PointCollection
             {
@@ -145,29 +142,25 @@ public partial class TuneWindow : Window
             Spoler.Fill = Brushes.Black;
             Spoler.Stroke = Brushes.Black;
             Spoler.StrokeThickness = 2;
-
-            Ellipse Wheel1 = new Ellipse();
-            Wheel1.Width = 30;
-            Wheel1.Height = 30;
-            Wheel1.Fill = Brushes.Silver;
-            Wheel1.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel1, 35);
-            Canvas.SetTop(Wheel1, 45);
-
-            Ellipse Wheel2 = new Ellipse();
-            Wheel2.Width = 30;
-            Wheel2.Height = 30;
-            Wheel2.Fill = Brushes.Silver;
-            Wheel2.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel2, 135);
-            Canvas.SetTop(Wheel2, 45);
-
-            AutoBild.Children.Add(Wheel1);
-            AutoBild.Children.Add(Wheel2);
+    
+            ZeichneRäder();
+    
             AutoBild.Children.Add(MittelKörper);
             AutoBild.Children.Add(Fenster);
             AutoBild.Children.Add(Spoler);
         }
+    }
+
+    private void ZeichneRäder()
+    {
+        Ellipse Wheel1 = new Ellipse { Width = 30, Height = 30, Fill = Brushes.Silver, Stroke = Brushes.Black };
+        Canvas.SetLeft(Wheel1, 35); Canvas.SetTop(Wheel1, 45);
+        
+        Ellipse Wheel2 = new Ellipse { Width = 30, Height = 30, Fill = Brushes.Silver, Stroke = Brushes.Black };
+        Canvas.SetLeft(Wheel2, 135); Canvas.SetTop(Wheel2, 45);
+    
+        AutoBild.Children.Add(Wheel1);
+        AutoBild.Children.Add(Wheel2);
     }
 }
 

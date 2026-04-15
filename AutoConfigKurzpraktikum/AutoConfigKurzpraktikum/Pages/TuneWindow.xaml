@@ -51,7 +51,7 @@
             <Canvas Name="AutoBild" Width="200" Height="100" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>      
 
             <Label Grid.Row="2" Content="Color:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 0 0 0"/>
-            <xctk:ColorPicker Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0 20 0 0"/>
+            <xctk:ColorPicker Name="ColorAuswahl" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0 20 0 0" SelectedColorChanged="ColorUpdate" UsingAlphaChannel="False"/>
         </Grid>
         
     </Grid>

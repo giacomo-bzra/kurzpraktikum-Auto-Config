@@ -43,7 +43,7 @@ public partial class TuneWindow : Window
         _currentCar = currentCar;
         _currentCarIndex = currentCarIndex;
         
-        if (_currentCarIndex % 2 == 0)
+        if (_currentCarIndex == 0)
         {
             ColorAuswahl.SelectedColor = Colors.SteelBlue;
         }
@@ -60,8 +60,9 @@ public partial class TuneWindow : Window
     
     public void Button_select(object sender, RoutedEventArgs e)
     {
+        Color finalColor = ColorAuswahl.SelectedColor ?? Colors.SteelBlue;
         StatsWindow statsWindow = new StatsWindow(SelectedTire, SelectedBrake, SelectedEngine, SelectedFrontspoiler,
-            SelectedHeckspoiler, SelectedRimm, _currentCarIndex, _currentCar);
+            SelectedHeckspoiler, SelectedRimm, _currentCarIndex, _currentCar, finalColor);
         statsWindow.Show();
         this.Close();
     }
@@ -78,7 +79,7 @@ public partial class TuneWindow : Window
         
         AutoBild.Children.Clear();
     
-        if (_currentCarIndex % 2 == 0)
+        if (_currentCarIndex == 0)
         {
             Polygon MittelKörper = new Polygon();
             MittelKörper.Points = new PointCollection
@@ -86,7 +87,7 @@ public partial class TuneWindow : Window
                 new Point(25, 60), new Point(175, 60), new Point(180, 55),
                 new Point(185, 40), new Point(170, 35), new Point(60, 35), new Point(30, 40)
             };
-            MittelKörper.Fill = autoPinsel; // Hier den Pinsel nutzen
+            MittelKörper.Fill = autoPinsel;
             MittelKörper.Stroke = Brushes.Black;
             MittelKörper.StrokeThickness = 2;
     

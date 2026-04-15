@@ -12,10 +12,10 @@ public partial class StatsWindow : Window
 {
     private Car __currentCar;
     private int __currentCarIndex;
-
+    private Color _selectedColor;
 
     public StatsWindow(Tire selectedTire, Brake selectedBrake, Engine selectedEngine, Frontspoiler selectedFrontspoiler,
-        Heckspoiler selectedHeckspoiler, Rimm selectedRimm, int _currentCarIndex, Car _currentCar)
+        Heckspoiler selectedHeckspoiler, Rimm selectedRimm, int _currentCarIndex, Car _currentCar, Color finalColor)
     {
 
         InitializeComponent();
@@ -23,6 +23,7 @@ public partial class StatsWindow : Window
 
         __currentCarIndex = _currentCarIndex;
         __currentCar = _currentCar;
+        _selectedColor = finalColor;
         
         Update();
     }
@@ -51,7 +52,7 @@ public partial class StatsWindow : Window
     private void Update()
     {
 
-        if (__currentCarIndex % 2 == 0)
+        if (__currentCarIndex == 0)
         {
             AutoBild.Children.Clear();
             Polygon MittelKörper = new Polygon();
@@ -59,10 +60,10 @@ public partial class StatsWindow : Window
             {
                 new Point(25, 60), new Point(175, 60), new Point(180, 55),
                 new Point(185, 40), new Point(170, 35), new Point(60, 35), new Point(30, 40)
-            };
-            MittelKörper.Fill = Brushes.SteelBlue;
+            }; 
             MittelKörper.Stroke = Brushes.Black;
             MittelKörper.StrokeThickness = 2;
+            MittelKörper.Fill = new SolidColorBrush(_selectedColor);
 
             Polygon Fenster = new Polygon();
             Fenster.Points = new PointCollection
@@ -112,7 +113,7 @@ public partial class StatsWindow : Window
                 new Point(15, 60), new Point(185, 60), new Point(185, 40), new Point(170, 35), new Point(60, 35),
                 new Point(15, 40)
             };
-            MittelKörper.Fill = Brushes.SaddleBrown;
+            MittelKörper.Fill = new SolidColorBrush(_selectedColor);
             MittelKörper.Stroke = Brushes.Black;
             MittelKörper.StrokeThickness = 2;
 

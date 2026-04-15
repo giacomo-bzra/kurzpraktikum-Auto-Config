@@ -57,9 +57,8 @@ public partial class MainWindow : Window
 
     private void Update()
     {
-        count.Content = $"{_currentCarIndex + 1} / {AvailableCars.Count}";
 
-        if (_currentCarIndex % 2 == 0)
+        if (_currentCarIndex == 0)
         {
             AutoBild.Children.Clear();
             Polygon MittelKörper = new Polygon();

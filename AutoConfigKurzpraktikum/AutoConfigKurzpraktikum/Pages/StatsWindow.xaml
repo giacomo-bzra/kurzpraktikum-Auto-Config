@@ -22,10 +22,10 @@
             <ProgressBar Name="BrakeBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
             
             <Label Content="Grip:" Margin="5 240 0 0"/>
-            <ProgressBar Name="GripBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
+            <ProgressBar Name="GripBar" Minimum="0" Maximum="100" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
            
             <Label Content="Weight:" Margin="5 320 0 0"/>
-            <ProgressBar Name="WeightBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+            <ProgressBar Name="WeightBar" Minimum="0" Maximum="400" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
             
         </Grid>
         
@@ -39,8 +39,20 @@
             <Border Grid.Row="1" BorderBrush="Black" VerticalAlignment="Center" BorderThickness="0 0 0 2"/> 
             <Label Content="placeholer picture"/>
             <Label Grid.Row="2" Content="placeholder total mone"/>
+            <TextBox Grid.Row="2" x:Name="txtName" />
+            <TextBox Grid.Row="2" x:Name="txtDownforce" />
             
-            <Button Grid.Row="2" Content="Done" Height="50" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 40 0 0" Click="Button_Done"/>
+            <Button Grid.Row="2" Content="Done" Height="50" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 0 20" Click="Button_Done"/>
+            <Label Grid.Row="2" VerticalAlignment="Top" Width="100"  Content="Price:" HorizontalAlignment="Left" Margin="0 0 20 0"/>
+            <Label Grid.Row="2" VerticalAlignment="Top" Name="LblPrice" Width="100" Margin="70 7 0 0"  />
+            <Label Grid.Row="2" VerticalAlignment="Top" Width="100"  Content="Downforce:" HorizontalAlignment="Left" Margin="0 30 0 0 "/>
+            <Label Grid.Row="2" VerticalAlignment="Top" Name="LblDownforce" Width="100" Margin="70 34 0 0"  />
+            <Label Grid.Row="2" VerticalAlignment="Top" Width="120"  Content="Fuelconsumption:" HorizontalAlignment="Left" Margin="0 60 0 0 "/>
+            <Label Grid.Row="2" VerticalAlignment="Top" Name="LblFuelconsumption" Width="100" Margin="70 60 0 0"  />
+            <Label Grid.Row="2" VerticalAlignment="Center" Width="120"  Content="Tire Type:" HorizontalAlignment="Left" Margin="0 0  0 0 "/>
+            <Label Grid.Row="2" VerticalAlignment="Center" Name="LblType" Width="100" Margin="70 0 0 0"  />
+            
+            
         </Grid>
         
     </Grid>

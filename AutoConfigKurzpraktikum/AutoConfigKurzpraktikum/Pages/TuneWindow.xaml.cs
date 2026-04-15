@@ -47,13 +47,13 @@ public partial class TuneWindow : Window
 
         this.DataContext = this;
     }
-
+    
 
 
     public void Button_select(object sender, RoutedEventArgs e)
     {
         StatsWindow statsWindow = new StatsWindow(SelectedTire, SelectedBrake, SelectedEngine, SelectedFrontspoiler,
-            SelectedHeckspoiler, SelectedRimm);
+            SelectedHeckspoiler, SelectedRimm, _currentCarIndex, _currentCar);
         statsWindow.Show();
         this.Close();
     }

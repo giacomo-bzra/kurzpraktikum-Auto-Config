@@ -37,7 +37,7 @@
             </Grid.RowDefinitions>
                         
             <Border Grid.Row="1" BorderBrush="Black" VerticalAlignment="Center" BorderThickness="0 0 0 2"/> 
-            <Label Content="placeholer picture"/>
+            <Canvas Name="AutoBild" Width="200" Height="100" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>      
             <Label Grid.Row="2" Content="placeholder total mone"/>
             
             <Button Grid.Row="2" Content="Done" Height="50" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 40 0 0" Click="Button_Done"/>

@@ -10,7 +10,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AutoConfigKurzpraktikum.Models;
 using AutoConfigKurzpraktikum.Pages;
-using AutoConfigKurzpraktikum.Service;
 
 namespace AutoConfigKurzpraktikum;
 

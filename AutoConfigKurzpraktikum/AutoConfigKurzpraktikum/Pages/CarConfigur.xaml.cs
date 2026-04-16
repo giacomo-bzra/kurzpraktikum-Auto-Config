@@ -17,10 +17,10 @@ namespace AutoConfigKurzpraktikum.Pages;
 public partial class CarConfigur : Window
 {
     private readonly IMongoCollection<Car> _carsCollection;
-    public List<Car> AvailableCars { get; set; }
+    public List<Car> AvailableCars { get; set; } = new List<Car>();
     private int _currentCarIndex = 0;
     
-    public Car CurrentCar => AvailableCars.Count > 0 ? AvailableCars[_currentCarIndex] : null;
+    public Car CurrentCar => (AvailableCars != null && AvailableCars.Count > 0) ? AvailableCars[_currentCarIndex] : null;
     
     public CarConfigur()
     {
@@ -30,24 +30,28 @@ public partial class CarConfigur : Window
         var database = client.GetDatabase("AutoConfig");
         _carsCollection = database.GetCollection<Car>("Cars");
 
-        LoadCarsFromDatabase();
+        _ = LoadCarsFromDatabase();
     }
 
     private async Task LoadCarsFromDatabase()
     {
-        var cars = await _carsCollection.Find(_ => true).ToListAsync();
-
-        if (cars.Any())
+        try
         {
-            AvailableCars = cars;
-            _currentCarIndex = 0;
+            var cars = await _carsCollection.Find(_ => true).ToListAsync();
 
-            this.DataContext = CurrentCar;
-            Update();
-        }
-        else
+            if (cars != null && cars.Any())
+            {
+                AvailableCars = cars;
+                _currentCarIndex = 0;
+                RefreshUI();
+            }
+            else
+            {
+                MessageBox.Show("Kein Auto gefunden!");
+            }
+        }catch(Exception ex)
         {
-            MessageBox.Show("Kein Auto gefunden!");
+            MessageBox.Show($"Db Fehler {ex.Message}");
         }
     }
 
@@ -70,25 +74,33 @@ public partial class CarConfigur : Window
         RefreshUI();
     }
     
-    
-    private void RefreshUI()
-    {
-        this.DataContext = null;
-        this.DataContext = CurrentCar;
-        Update();
-    }
-    
     public void Button_select(object sender, RoutedEventArgs e)
     {
+        if (CurrentCar == null)
+        {
+            MessageBox.Show("Kein Auto gefunden!");
+            return;
+        }
+        
         TuneWindow tuneWindow = new TuneWindow(CurrentCar);
         tuneWindow.Show();
         this.Close();
+    }
+    
+    private void RefreshUI()
+    {
+        this.Dispatcher.Invoke(() =>
+        {
+            this.DataContext = null;
+            this.DataContext = CurrentCar;
+            Update();
+        });
     }
 
     private void Update()
     {
 
-        if (CurrentCar == null) return;
+        if (CurrentCar == null || AutoBild == null) return;
         AutoBild.Children.Clear();
 
         if (CurrentCar.Modell == "M3")

@@ -19,8 +19,12 @@ public class Car
     public double BaseWeight {get;set;}
     public double CurrentWeight {get;set;}
     
+    
+    
 
     public List<TuningPart> InstalledParts { get; set; }
+    public List<TuningPart> InitialParts { get; set; }
+    
     public Car( string carId, string brand, string modell, double price, int baseHorsepower, int currentHorsepower, double baseWeight, double currentWeight, List<TuningPart> initialParts)
     {
         this.CarId = carId;
@@ -31,7 +35,7 @@ public class Car
         this.CurrentHorsepower = currentHorsepower;
         this.BaseWeight = baseWeight;
         this.CurrentWeight = currentWeight;
-        this.InstalledParts = initialParts ?? new List<TuningPart>();
+        this.InstalledParts = InitialParts ?? new List<TuningPart>();
     }
 
     public void AddTuningPart(TuningPart part)

@@ -22,10 +22,10 @@
             <ProgressBar Name="BrakeBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 180 0 0"/>
             
             <Label Content="Grip:" Margin="5 240 0 0"/>
-            <ProgressBar Name="GripBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
+            <ProgressBar Name="GripBar" Minimum="0" Maximum="150" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 260 0 0"/>
            
             <Label Content="Weight:" Margin="5 320 0 0"/>
-            <ProgressBar Name="WeightBar" Minimum="0" Maximum="1000" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
+            <ProgressBar Name="WeightBar" Minimum="0" Maximum="2500" BorderBrush="black" Background="White" Foreground="Gray" Height="25" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 340 0 0"/>
             
         </Grid>
         
@@ -38,10 +38,17 @@
                         
             <Border Grid.Row="1" BorderBrush="Black" VerticalAlignment="Center" BorderThickness="0 0 0 2"/> 
             <Canvas Name="AutoBild" Width="200" Height="100" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>      
-            <Label Grid.Row="2" Content="placeholder total mone"/>
+            <Label Grid.Row="2" Content="Name:" VerticalAlignment="Top" Margin="0 0 0 0" HorizontalAlignment="Left"/>
+            <Label Grid.Row="2" x:Name="lblName" VerticalAlignment="Top" Margin="150 0 0 0" HorizontalAlignment="Left"/>
+            <Label Grid.Row="2" Content="Total Price:" VerticalAlignment="Top" Margin="0 20 0 0" HorizontalAlignment="Left"/>
+            <Label Grid.Row="2" x:Name="lblPrice" VerticalAlignment="Top" Margin="150 20 0 0" HorizontalAlignment="Left"/>
+            <Label Grid.Row="2" Content="Downforce:" VerticalAlignment="Top" Margin="0 40 0 0" HorizontalAlignment="Left"/>
+            <Label Grid.Row="2" x:Name="lblDownforce" VerticalAlignment="Top" Margin="150 40 0 0" HorizontalAlignment="Left"/>
+            <Label Grid.Row="2" Content="Fuelconsumption:" VerticalAlignment="Top" Margin="0 60 0 0" HorizontalAlignment="Left"/>
+            <Label Grid.Row="2" x:Name="lblFuelconsumption" VerticalAlignment="Top" Margin="150 60 0 0" HorizontalAlignment="Left"/>
             
-            <Button Grid.Row="2" Content="Done" Height="50" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 40 0 0" Click="Button_Done"/>
+            
+            <Button Grid.Row="2" Content="Done" Height="50" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 0 20" Click="Button_Done"/>
         </Grid>
-        
     </Grid>
 </Window>

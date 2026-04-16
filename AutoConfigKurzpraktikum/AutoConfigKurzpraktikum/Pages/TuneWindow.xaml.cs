@@ -4,165 +4,121 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using AutoConfigKurzpraktikum.Models;
 using AutoConfigKurzpraktikum.Pages;
-using AutoConfigKurzpraktikum.Service;
 using AutoConfigKurzpraktikum.Models.Parts;
+using AutoConfigKurzpraktikum.Service;
+using MongoDB.Driver;
+using Xceed.Wpf.Toolkit;
+using MessageBox = System.Windows.MessageBox;
 
 namespace AutoConfigKurzpraktikum;
 
 public partial class TuneWindow : Window
 {
-    private Car _currentCar;
-    private int _currentCarIndex;
-
-    public List<Tire> TireOptions => PartsCollection.AllTires;
-    public List<Brake> BrakeOptions => PartsCollection.AllBrakes;
-    public List<Engine> EngineOptions => PartsCollection.AllEngines;
-    public List<Frontspoiler> FrontspoilerOptons => PartsCollection.AllFrontspoilers;
-    public List<Heckspoiler> HeckspoilerOptions => PartsCollection.AllHeckspoilers;
-    public List<Rimm> RimmOptions => PartsCollection.AllRimms;
-
-
-    public Tire SelectedTire { get; set; }
-    public Brake SelectedBrake { get; set; }
-    public Engine SelectedEngine { get; set; }
-    public Frontspoiler SelectedFrontspoiler { get; set; }
-    public Heckspoiler SelectedHeckspoiler { get; set; }
-    public Rimm SelectedRimm { get; set; }
-
-    public TuneWindow(Car currentCar, int currentCarIndex)
-    {
-
-        InitializeComponent();
-        SelectedTire = TireOptions.FirstOrDefault();
-        SelectedBrake = BrakeOptions.FirstOrDefault();
-        SelectedEngine = EngineOptions.FirstOrDefault();
-        SelectedFrontspoiler = FrontspoilerOptons.FirstOrDefault();
-        SelectedHeckspoiler = HeckspoilerOptions.FirstOrDefault();
-        SelectedRimm = RimmOptions.FirstOrDefault();
+    
+    
+        private readonly IMongoCollection<Car> _carsCollection;
+        private readonly IMongoCollection<TuningPart> _partsCollection;
         
-        _currentCar = currentCar;
-        _currentCarIndex = currentCarIndex;
+        public Car SelectedCar { get; set; }
+    
+        CarConfigur Draw = new CarConfigur();
         
-        if (_currentCarIndex == 0)
+        public List<Car> AvailableCars { get; set; } = new();
+    
+
+        
+        
+        public List<Tire> TireOptions { get; set; } = new();
+        public List<Brake> BrakeOptions { get; set; } = new();
+        public List<Engine> EngineOptions { get; set; } = new();
+        public List<Frontspoiler> FrontspoilerOptions { get; set; } = new();
+        public List<Heckspoiler> HeckspoilerOptions { get; set; } = new();
+        public List<Rimm> RimmOptions { get; set; } = new();
+        
+        public Tire SelectedTire { get; set; }
+        public Brake SelectedBrake { get; set; }
+        public Engine SelectedEngine { get; set; }
+        public Frontspoiler SelectedFrontspoiler { get; set; }
+        public Heckspoiler SelectedHeckspoiler { get; set; }
+        public Rimm SelectedRimm { get; set; }
+
+        public TuneWindow(Car carFromConfig)
         {
-            ColorAuswahl.SelectedColor = Colors.SteelBlue;
-        }
-        else
-        {
-            ColorAuswahl.SelectedColor = Colors.SaddleBrown;
-        }
+            InitializeComponent();
+            
+            SelectedCar = carFromConfig;
+            this.DataContext = this;
+            
+             var client = new MongoClient("mongodb://localhost:27017/");
+             var database = client.GetDatabase("AutoConfig");
+             _partsCollection = database.GetCollection<TuningPart>("Parts");
+            
+            _ = LoadPartsFromDatabaseAndSetDefaults();
 
-        this.DataContext = this;
+            UpdateCarVisuals();
+        }
         
-        Update();
-    }
-    
-    
-    public void Button_select(object sender, RoutedEventArgs e)
-    {
-        Color finalColor = ColorAuswahl.SelectedColor ?? Colors.SteelBlue;
-        StatsWindow statsWindow = new StatsWindow(SelectedTire, SelectedBrake, SelectedEngine, SelectedFrontspoiler,
-            SelectedHeckspoiler, SelectedRimm, _currentCarIndex, _currentCar, finalColor);
-        statsWindow.Show();
-        this.Close();
-    }
-
-    public void ColorUpdate(object sender, RoutedEventArgs e)
-    {
-        Update();
-    }
-
-    private void Update()
-    {
-        Color gewählteFarbe = ColorAuswahl.SelectedColor ?? Colors.SteelBlue;
-        Brush autoPinsel = new SolidColorBrush(gewählteFarbe);
-        
-        AutoBild.Children.Clear();
-    
-        if (_currentCarIndex == 0)
+        public async Task LoadPartsFromDatabaseAndSetDefaults()
         {
-            Polygon MittelKörper = new Polygon();
-            MittelKörper.Points = new PointCollection
+            try
             {
-                new Point(25, 60), new Point(175, 60), new Point(180, 55),
-                new Point(185, 40), new Point(170, 35), new Point(60, 35), new Point(30, 40)
-            };
-            MittelKörper.Fill = autoPinsel;
-            MittelKörper.Stroke = Brushes.Black;
-            MittelKörper.StrokeThickness = 2;
-    
-            Polygon Fenster = new Polygon();
-            Fenster.Points = new PointCollection
-            {
-                new Point(65, 35), new Point(90, 15), new Point(130, 15), new Point(155, 35)            
-            };
-            Fenster.Fill = Brushes.LightBlue;
-            Fenster.Stroke = Brushes.Black;
-    
-            Polygon Spoler = new Polygon();
-            Spoler.Points = new PointCollection
-            {
-                new Point(27.5, 40), new Point(20, 25), new Point(40, 37.5)            
-            };
-            Spoler.Fill = Brushes.Black;
-            Spoler.Stroke = Brushes.Black;
-            Spoler.StrokeThickness = 2;
-    
-            ZeichneRäder();
-    
-            AutoBild.Children.Add(MittelKörper);
-            AutoBild.Children.Add(Fenster);
-            AutoBild.Children.Add(Spoler);
-        }
-        else
-        {
-            Polygon MittelKörper = new Polygon();
-            MittelKörper.Points = new PointCollection
-            {
-                new Point(15, 60), new Point(185, 60), new Point(185, 40), new Point(170, 35), new Point(60, 35),
-                new Point(15, 40)
-            };
-            MittelKörper.Fill = autoPinsel;
-            MittelKörper.Stroke = Brushes.Black;
-            MittelKörper.StrokeThickness = 2;
-    
-            Polygon Fenster = new Polygon();
-            Fenster.Points = new PointCollection
-            {
-                new Point(50, 35), new Point(70, 20), new Point(155, 20), new Point(170, 35)
-            };
-            Fenster.Fill = Brushes.LightBlue;
-            Fenster.Stroke = Brushes.Black;
-    
-            Polygon Spoler = new Polygon();
-            Spoler.Points = new PointCollection
-            {
-                new Point(15, 37.5), new Point(30, 35), new Point(30, 38), new Point(32, 35), new Point(50, 32.5),
-                new Point(50, 27.5), new Point(15, 32.5)
-            };
-            Spoler.Fill = Brushes.Black;
-            Spoler.Stroke = Brushes.Black;
-            Spoler.StrokeThickness = 2;
-    
-            ZeichneRäder();
-    
-            AutoBild.Children.Add(MittelKörper);
-            AutoBild.Children.Add(Fenster);
-            AutoBild.Children.Add(Spoler);
-        }
-    }
+                var allParts = await _partsCollection.Find(_ => true).ToListAsync();
+                
+                EngineOptions = allParts.OfType<Engine>().ToList();
+                TireOptions = allParts.OfType<Tire>().ToList();
+                BrakeOptions = allParts.OfType<Brake>().ToList();
+                RimmOptions = allParts.OfType<Rimm>().ToList();
+                FrontspoilerOptions = allParts.OfType<Frontspoiler>().ToList();
+                HeckspoilerOptions = allParts.OfType<Heckspoiler>().ToList();
+                
+                if (SelectedCar.InstalledParts != null)
+                {
+                    SelectedEngine = EngineOptions.FirstOrDefault(x => x.PartId == SelectedCar.InstalledParts.OfType<Engine>().FirstOrDefault()?.PartId);
+                    SelectedBrake = BrakeOptions.FirstOrDefault(x => x.PartId == SelectedCar.InstalledParts.OfType<Brake>().FirstOrDefault()?.PartId);
+                    SelectedTire = TireOptions.FirstOrDefault(x => x.PartId == SelectedCar.InstalledParts.OfType<Tire>().FirstOrDefault()?.PartId);
+                    SelectedRimm = RimmOptions.FirstOrDefault(x => x.PartId == SelectedCar.InstalledParts.OfType<Rimm>().FirstOrDefault()?.PartId);
+                    SelectedFrontspoiler = FrontspoilerOptions.FirstOrDefault(x => x.PartId == SelectedCar.InstalledParts.OfType<Frontspoiler>().FirstOrDefault()?.PartId);
+                    SelectedHeckspoiler = HeckspoilerOptions.FirstOrDefault(x => x.PartId == SelectedCar.InstalledParts.OfType<Heckspoiler>().FirstOrDefault()?.PartId);
+                }
 
-    private void ZeichneRäder()
-    {
-        Ellipse Wheel1 = new Ellipse { Width = 30, Height = 30, Fill = Brushes.Silver, Stroke = Brushes.Black };
-        Canvas.SetLeft(Wheel1, 35); Canvas.SetTop(Wheel1, 45);
+                this.DataContext = null;
+                this.DataContext = this;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler: {ex.Message}");
+            }
+        }
+
+        private void UpdateCarVisuals()
+        {
+            if (SelectedCar == null) return;
+
+            if (SelectedCar.Modell == "M3")
+            {
+                CarPainter.DrawModernCarSmall(AutoBild);
+            }
+            else
+            {
+                CarPainter.DrawOldtimerSmall(AutoBild);
+            }
+        }
         
-        Ellipse Wheel2 = new Ellipse { Width = 30, Height = 30, Fill = Brushes.Silver, Stroke = Brushes.Black };
-        Canvas.SetLeft(Wheel2, 135); Canvas.SetTop(Wheel2, 45);
     
-        AutoBild.Children.Add(Wheel1);
-        AutoBild.Children.Add(Wheel2);
-    }
+        public void Button_Select(object sender, RoutedEventArgs e)
+        {
+            StatsWindow statsWindow = new StatsWindow(
+                SelectedCar,
+                SelectedBrake, 
+                SelectedEngine, 
+                SelectedFrontspoiler, 
+                SelectedHeckspoiler,
+                SelectedRimm, 
+                SelectedTire
+                );
+            statsWindow.Show();
+            this.Close();
+        }
 }
 
     

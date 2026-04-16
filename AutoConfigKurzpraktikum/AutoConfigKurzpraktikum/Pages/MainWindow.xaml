@@ -7,17 +7,34 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600">
     <Grid>
-        <Label Content="Auto Configuration:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
+        <Label Content="Auto Select:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
         
+        <ListBox ItemsSource="{Binding BaseCar}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="Auto" Width="Auto" Margin="0 70 0 70">
+            
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Height="50" Width="50" Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="DarkGray"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Padding" Value="5"/>
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
         
-        <Canvas Name="AutoBild" Width="400" Height="200" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>      
-        
-        
-        <Button Name="ButtonLeft" Content="Left" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30 0 30 0" Click="Button_Left"/>
-        <Button Name="ButtonRight" Content="Right" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="30 0 30 0" Click="Button_Right"/>
-        <Button Name="Select" Content="Select" Height="40" Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 20" Click="Button_select"/>
-        
-        <Label Name="count" Content="" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16
-        "/>
+        <Button Content="Create New" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="350 0 0 15" Click="Button_CreateNew"/>
+        <Button Content="Edit" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 0 15" Click="Button_Edit"/>
+        <Button Content="Delete" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 350 15" Click="Button_Delete"/>
+        <Button Content="Close" Height="40" Width="40" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 5 5 0" Background="DarkRed" Foreground="White" Click="Button_Close"/>
+
     </Grid>
 </Window>

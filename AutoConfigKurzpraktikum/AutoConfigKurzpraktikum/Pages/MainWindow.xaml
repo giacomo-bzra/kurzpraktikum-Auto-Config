@@ -5,34 +5,117 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoConfigKurzpraktikum"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="600">
+        Title="AutoConfig – Garage" Height="500" Width="700"
+        Loaded="Window_Loaded">
     <Grid>
-        <Label Content="Auto Select:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
         
-        <ListBox ItemsSource="{Binding BaseCar}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="Auto" Width="Auto" Margin="0 70 0 70">
-            
+        <Label Grid.Row="0" Content="Meine Garage"
+               FontSize="28" FontWeight="Bold"
+               VerticalAlignment="Center" Margin="15,0,0,0"/>
+        
+        <ListBox Grid.Row="1"
+                 x:Name="CarListBox"
+                 ItemsSource="{Binding SavedCars}"
+                 SelectedItem="{Binding SelectedCar, Mode=TwoWay}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 Margin="10,5,10,5"
+                 Background="Transparent"
+                 BorderThickness="1"
+                 BorderBrush="#CCCCCC">
+
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel></WrapPanel>
+                    <WrapPanel HorizontalAlignment="Left" Margin="5"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
-            
+
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Height="50" Width="50" Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="DarkGray"/>
+                    <Border Background="#2D2D2D" Width="150" Height="100"
+                            CornerRadius="6" Margin="6" Padding="8">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Brand}"
+                                       FontWeight="Bold" FontSize="13"
+                                       Foreground="White"
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Modell}"
+                                       FontSize="12"
+                                       Foreground="#AAAAAA"
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Price, StringFormat={}{0:N0} CHF}"
+                                       FontSize="11"
+                                       Foreground="#4FC3F7"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,4,0,0"/>
+                            <TextBlock FontSize="10" HorizontalAlignment="Center" Margin="0,2,0,0">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Text" Value="⚙ Getunt"/>
+                                        <Setter Property="Foreground" Value="#81C784"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            
+
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
-                    <Setter Property="Padding" Value="5"/>
-                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Margin" Value="0"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                        </Trigger>
+                    </Style.Triggers>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
         
-        <Button Content="Create New" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="350 0 0 15" Click="Button_CreateNew"/>
-        <Button Content="Edit" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 0 15" Click="Button_Edit"/>
-        <Button Content="Delete" Height="40" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 350 15" Click="Button_Delete"/>
+        <TextBlock Grid.Row="1"
+                   Text="Keine gespeicherten Autos. Erstelle ein neues!"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="14" Foreground="Gray"
+                   Visibility="{Binding EmptyStateVisibility}"/>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Content="➕  Neu konfigurieren"
+                    Height="38" Margin="15,0,8,11"
+                    Background="#388E3C" Foreground="White"
+                    FontWeight="SemiBold"
+                    Click="Button_CreateNew"/>
+
+            <Button Grid.Column="1"
+                    Content="✏  Bearbeiten"
+                    Height="38" Margin="8,0,8,11"
+                    Background="#1565C0" Foreground="White"
+                    FontWeight="SemiBold"
+                    Click="Button_Edit"/>
+
+            <Button Grid.Column="2"
+                    Content="🗑  Löschen"
+                    Height="38" Margin="8,0,15,11"
+                    Background="#C62828" Foreground="White"
+                    FontWeight="SemiBold"
+                    Click="Button_Delete"/>
+        </Grid>
     </Grid>
 </Window>

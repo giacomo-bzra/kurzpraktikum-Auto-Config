@@ -6,79 +6,144 @@
         xmlns:local="clr-namespace:AutoConfigKurzpraktikum"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="TuneWindow" Height="400" Width="700">
+        Title="TuneWindow" Height="480" Width="720">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="450"/> <ColumnDefinition Width="*"/>   </Grid.ColumnDefinitions>
-                
-        <Grid Grid.Column="0">
-            <GridSplitter Width="2" Background="Black" HorizontalAlignment="Right"/> 
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
             
-            <Label Content="Modification:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 0 0 0" FontSize="40"/>
+        <Grid Grid.Column="0">
+            <GridSplitter Width="2" Background="Black" HorizontalAlignment="Right"/>
 
-           <Label Content="Brake:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,80,0,0"/>
-<ComboBox Name="CombBrake" 
-          ItemsSource="{Binding BrakeOptions}" 
-          SelectedItem="{Binding SelectedBrake}" 
-          DisplayMemberPath="Name" 
-          Width="180" Height="25" 
-          VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,100,0,0"/>
+            <Label Content="Modification:" HorizontalAlignment="Left" VerticalAlignment="Top"
+                   Margin="5,0,0,0" FontSize="36"/>
+            
+            <Label Content="Bremse:" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="15,78,0,0"/>
+            <ComboBox Name="CombBrake"
+                      ItemsSource="{Binding BrakeOptions}"
+                      SelectedItem="{Binding SelectedBrake}"
+                      DisplayMemberPath="Name"
+                      Width="180" Height="25"
+                      VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,98,0,0"/>
 
-<Label Content="Engine:" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,80,155,0"/>
-<ComboBox Name="CombEngine" 
-          ItemsSource="{Binding EngineOptions}" 
-          SelectedItem="{Binding SelectedEngine}" 
-          DisplayMemberPath="Name" 
-          Width="180" Height="25" 
-          VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,20,0"/>
+            <Label Content="Motor:" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,78,155,0"/>
+            <ComboBox Name="CombEngine"
+                      ItemsSource="{Binding EngineOptions}"
+                      SelectedItem="{Binding SelectedEngine}"
+                      DisplayMemberPath="Name"
+                      Width="180" Height="25"
+                      VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,98,20,0"/>
+            
+            <Label Content="Frontspoiler:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,-40,20,0"/>
+            <ComboBox Name="CombFrontspoiler"
+                      ItemsSource="{Binding FrontspoilerOptions}"
+                      SelectedItem="{Binding SelectedFrontspoiler}"
+                      DisplayMemberPath="Name"
+                      Width="180" Height="25"
+                      VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,20,0"/>
 
-<Label Content="Frontspoiler:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,-40,20,0"/>
-<ComboBox Name="CombFrontspoiler" 
-          ItemsSource="{Binding FrontspoilerOptions}" 
-          SelectedItem="{Binding SelectedFrontspoiler}" 
-          DisplayMemberPath="Name" 
-          Width="180" Height="25" 
-          VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,20,0"/>
+            <Label Content="Heckspoiler:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,-40,130,0"/>
+            <ComboBox Name="CombHeckspoiler"
+                      ItemsSource="{Binding HeckspoilerOptions}"
+                      SelectedItem="{Binding SelectedHeckspoiler}"
+                      DisplayMemberPath="Name"
+                      Width="180" Height="25"
+                      VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+            
+            <Label Content="Felge:" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15,0,20,150"/>
+            <ComboBox Name="CombRimm"
+                      ItemsSource="{Binding RimmOptions}"
+                      SelectedItem="{Binding SelectedRimm}"
+                      DisplayMemberPath="Name"
+                      Width="180" Height="25"
+                      VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,20,128"/>
 
-<Label Content="Heckspoiler:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,-40,130,0"/>
-<ComboBox Name="CombHeckspoiler" 
-          ItemsSource="{Binding HeckspoilerOptions}" 
-          SelectedItem="{Binding SelectedHeckspoiler}" 
-          DisplayMemberPath="Name" 
-          Width="180" Height="25" 
-          VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+            <Label Content="Reifen:" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,170,150"/>
+            <ComboBox Name="CombTire"
+                      ItemsSource="{Binding TireOptions}"
+                      SelectedItem="{Binding SelectedTire}"
+                      DisplayMemberPath="Name"
+                      Width="180" Height="25"
+                      VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,128"/>
+            
+            <Label Content="Modellname:" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15,0,20,90"/>
+            <TextBox Name="TxtModelName"
+                     Width="400" Height="28"
+                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                     Margin="20,0,20,60"
+                     Text="{Binding SelectedCar.Modell, UpdateSourceTrigger=PropertyChanged}"/>
 
-<Label Content="Rimm:" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15,0,20,120"/>
-<ComboBox Name="CombRimm" 
-          ItemsSource="{Binding RimmOptions}" 
-          SelectedItem="{Binding SelectedRimm}" 
-          DisplayMemberPath="Name" 
-          Width="180" Height="25" 
-          VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,20,100"/>
-
-<Label Content="Tire:" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,170,120"/>
-<ComboBox Name="CombTire" 
-          ItemsSource="{Binding TireOptions}" 
-          SelectedItem="{Binding SelectedTire}" 
-          DisplayMemberPath="Name" 
-          Width="180" Height="25" 
-          VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,100"/>          
-            <Button x:Name="Select" Content="Select" Height="40" Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 20" Click="Button_Select"/>
+            <Button x:Name="SelectBtn"
+                    Content="✔  Konfiguration speichern"
+                    Height="40" Width="200"
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                    Margin="0,0,0,12"
+                    Background="#388E3C" Foreground="White" FontWeight="SemiBold"
+                    Click="Button_Select"/>
         </Grid>
-        
+
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/> <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            
-            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0 0 0 2" VerticalAlignment="Center"/>
-            
-            <Canvas x:Name="AutoBild" Width="200" Height="100" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>      
+                
+            <Canvas x:Name="AutoBild"
+                    Grid.Row="0"
+                    Width="200" Height="120"
+                    Background="Transparent"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-            <Label Grid.Row="2" Content="Color:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 0 0 0"/>
+            <Separator Grid.Row="1" Margin="5,0"/>
+
+            <StackPanel Grid.Row="2" Margin="8,6,8,10">
+                <Label Content="Karosseriefarbe:"
+                       FontWeight="SemiBold" Margin="0,0,0,2"/>
+
+                <xctk:ColorPicker x:Name="CarColorPicker"
+                                  SelectedColorChanged="CarColorPicker_SelectedColorChanged"
+                                  Width="200"
+                                  HorizontalAlignment="Left"/>
+
+
+                <WrapPanel x:Name="ColorSwatches" Margin="0,6,0,0">
+                    <Button Tag="#1565C0" Width="24" Height="24" Margin="2" Background="#1565C0"
+                            ToolTip="Blau" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                    <Button Tag="#C62828" Width="24" Height="24" Margin="2" Background="#C62828"
+                            ToolTip="Rot" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                    <Button Tag="#2E7D32" Width="24" Height="24" Margin="2" Background="#2E7D32"
+                            ToolTip="Grün" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                    <Button Tag="#F9A825" Width="24" Height="24" Margin="2" Background="#F9A825"
+                            ToolTip="Gelb" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                    <Button Tag="#6A1B9A" Width="24" Height="24" Margin="2" Background="#6A1B9A"
+                            ToolTip="Lila" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                    <Button Tag="#37474F" Width="24" Height="24" Margin="2" Background="#37474F"
+                            ToolTip="Dunkelgrau" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                    <Button Tag="#795548" Width="24" Height="24" Margin="2" Background="#795548"
+                            ToolTip="Braun" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                    <Button Tag="#ECEFF1" Width="24" Height="24" Margin="2" Background="#ECEFF1"
+                            ToolTip="Weiß" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                    <Button Tag="#000000" Width="24" Height="24" Margin="2" Background="#000000"
+                            ToolTip="Schwarz" Click="Swatch_Click" BorderThickness="1" BorderBrush="White"/>
+                    <Button Tag="#B71C1C" Width="24" Height="24" Margin="2" Background="#B71C1C"
+                            ToolTip="Dunkelrot" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                    <Button Tag="#4A90D9" Width="24" Height="24" Margin="2" Background="#4A90D9"
+                            ToolTip="Hellblau" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                    <Button Tag="#FF6F00" Width="24" Height="24" Margin="2" Background="#FF6F00"
+                            ToolTip="Orange" Click="Swatch_Click" BorderThickness="1" BorderBrush="Black"/>
+                </WrapPanel>
+                
+                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                    <Label Content="Gewählt:" VerticalAlignment="Center" Padding="0,0,4,0"/>
+                    <Border x:Name="SelectedColorPreview"
+                            Width="40" Height="20"
+                            BorderBrush="Black" BorderThickness="1"
+                            CornerRadius="3"/>
+                </StackPanel>
+            </StackPanel>
         </Grid>
-        
     </Grid>
 </Window>

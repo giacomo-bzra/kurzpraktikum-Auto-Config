@@ -115,10 +115,8 @@ public static class DbSeeder
                 currentHorsepower: 300,
                 baseWeight: 1500.0,
                 currentWeight: 1500.0,
-                // WICHTIG: Name muss zum Konstruktor-Parameter passen
                 initialParts: new List<TuningPart>
                 {
-                    // Name und Werte sollten exakt denen aus SeedParts entsprechen
                     new Engine(ObjectId.GenerateNewId().ToString(), "Standart V6", 0, 300, true, "Black", 10.5, 100),
                     new Brake(ObjectId.GenerateNewId().ToString(), "Basis Lippe", 0, 5.0, true, "Black", 100),
                     new Frontspoiler(ObjectId.GenerateNewId().ToString(), "Basic Front", 0, 10, true, "Black", 70),
@@ -126,7 +124,8 @@ public static class DbSeeder
                     new Tire(ObjectId.GenerateNewId().ToString(), "Basic Tire", 0, 5, true, "Black",
                         AutoConfigKurzpraktikum.Models.Parts.Type.Race, 5, 15),
                     new Rimm(ObjectId.GenerateNewId().ToString(), "Basis Rimm", 0, 5, true, "Black", 50)
-                }
+                },
+                color:  "#4682B4"
             ),
             new Car(
                 carId: ObjectId.GenerateNewId().ToString(),
@@ -147,7 +146,8 @@ public static class DbSeeder
                     new Tire(ObjectId.GenerateNewId().ToString(), "Thin Eco Tire", 0, 4, true, "Black",
                         AutoConfigKurzpraktikum.Models.Parts.Type.Race, 3, 10),
                     new Rimm(ObjectId.GenerateNewId().ToString(), "Steel Rims", 0, 12, true, "Silver", 13)
-                }
+                },
+                color:"#8B4513"
             )
         };
         await carCollection.InsertManyAsync(cars);

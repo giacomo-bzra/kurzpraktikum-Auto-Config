@@ -50,18 +50,18 @@ public partial class StatsWindow : Window
         lblDownforce.Content = $"{totalDownforce} N";
         lblFuelconsumption.Content = $"{totalFuel} L/100km";
 
-        DrawCar(selectedCar.Modell);
+        DrawCar(selectedCar.Brand);
 
     }
 
-    private void DrawCar(string model)
+    private void DrawCar(string brand)
     {
         AutoBild.Children.Clear();
-        if (model == "M3")
+        if (brand == "BMW")
         {
             CarPainter.DrawModernCarSmall(AutoBild);
         }
-        else
+        else if (brand == "Oldtimer")
         {
             CarPainter.DrawOldtimerSmall(AutoBild);
             

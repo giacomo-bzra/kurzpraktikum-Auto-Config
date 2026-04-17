@@ -1,13 +1,4 @@
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using AutoConfigKurzpraktikum.Models;
 using AutoConfigKurzpraktikum.Service;
 using MongoDB.Driver;
@@ -17,77 +8,82 @@ namespace AutoConfigKurzpraktikum.Pages;
 public partial class CarConfigur : Window
 {
     private readonly IMongoCollection<Car> _carsCollection;
-    public List<Car> AvailableCars { get; set; } = new List<Car>();
+    private readonly CarConfigurMode _mode;
+
+    public List<Car> AvailableCars { get; set; } = new();
     private int _currentCarIndex = 0;
+    public Car? CurrentCar;
+
     
-    public Car CurrentCar => (AvailableCars != null && AvailableCars.Count > 0) ? AvailableCars[_currentCarIndex] : null;
-    
-    public CarConfigur()
+
+    public CarConfigur(CarConfigurMode mode = CarConfigurMode.New)
     {
         InitializeComponent();
         
+        _mode = mode;
+
         var client = new MongoClient("mongodb://localhost:27017");
         var database = client.GetDatabase("AutoConfig");
         _carsCollection = database.GetCollection<Car>("Cars");
-
-        _ = LoadCarsFromDatabase();
-    }
-
-    private async Task LoadCarsFromDatabase()
-    {
-        try
-        {
-            var cars = await _carsCollection.Find(_ => true).ToListAsync();
-
-            if (cars != null && cars.Any())
-            {
-                AvailableCars = cars;
-                _currentCarIndex = 0;
-                RefreshUI();
-            }
-            else
-            {
-                MessageBox.Show("Kein Auto gefunden!");
-            }
-        }catch(Exception ex)
-        {
-            MessageBox.Show($"Db Fehler {ex.Message}");
-        }
+        
+        AvailableCars = _carsCollection.Find(Builders<Car>.Filter.Empty).ToList();
+        CurrentCar = AvailableCars[_currentCarIndex];
+        RefreshUi();
+        
+        
+        
+        this.Title = mode == CarConfigurMode.New
+            ? "Neues Auto konfigurieren"
+            : "Auto bearbeiten";
     }
 
     public void Button_Left(object sender, RoutedEventArgs e)
     {
-        if(AvailableCars.Count == 0) return;
-        _currentCarIndex = (_currentCarIndex + 1) % AvailableCars.Count;
-        RefreshUI();
+        if (AvailableCars.Count == 0) return;
+
+        _currentCarIndex--;
+
+
+        if (_currentCarIndex < 0)
+            _currentCarIndex = AvailableCars.Count - 1;
+
+        Console.WriteLine(_currentCarIndex);
+        RefreshUi();
+        CurrentCar = AvailableCars[_currentCarIndex];
+
     }
 
     public void Button_Right(object sender, RoutedEventArgs e)
     {
-        if(AvailableCars.Count == 0) return;
-        _currentCarIndex--;
-        if (_currentCarIndex < 0)
-        {
-            _currentCarIndex = AvailableCars.Count - 1;
-        }
+        if (AvailableCars.Count == 0) return;
 
-        RefreshUI();
+        _currentCarIndex++;
+
+
+        if (_currentCarIndex >= AvailableCars.Count)
+            _currentCarIndex = 0;
+
+        Console.WriteLine(_currentCarIndex);
+        RefreshUi();
+        CurrentCar = AvailableCars[_currentCarIndex];
+
     }
-    
+
     public void Button_select(object sender, RoutedEventArgs e)
     {
         if (CurrentCar == null)
         {
-            MessageBox.Show("Kein Auto gefunden!");
+            MessageBox.Show("Kein Auto ausgewählt!");
             return;
         }
-        
-        TuneWindow tuneWindow = new TuneWindow(CurrentCar);
+
+        var tuneWindow = new TuneWindow(CurrentCar);
         tuneWindow.Show();
-        this.Close();
+        Close();
     }
     
-    private void RefreshUI()
+
+    private void RefreshUi()
     {
         this.Dispatcher.Invoke(() =>
         {
@@ -99,17 +95,12 @@ public partial class CarConfigur : Window
 
     private void Update()
     {
-
         if (CurrentCar == null || AutoBild == null) return;
         AutoBild.Children.Clear();
 
-        if (CurrentCar.Modell == "M3")
-        {
+        if (CurrentCar.Brand == "BMW")
             CarPainter.DrawModernCar(AutoBild);
-        }
-        else
-        {
-           CarPainter.DrawOldtimer(AutoBild);
-        }
+        else if (CurrentCar.Brand == "Oldtimer")
+            CarPainter.DrawOldtimer(AutoBild);
     }
 }

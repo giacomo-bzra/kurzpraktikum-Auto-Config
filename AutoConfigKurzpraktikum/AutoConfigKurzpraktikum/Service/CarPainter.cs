@@ -2,212 +2,229 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using AutoConfigKurzpraktikum.Models;
 
-namespace AutoConfigKurzpraktikum.Service; 
-    public static class CarPainter
+namespace AutoConfigKurzpraktikum.Service;
+
+public static class CarPainter
+{
+    public static void DrawOldtimer(Canvas targetCanvas)
+        => DrawOldtimerColored(targetCanvas, Colors.SaddleBrown);
+
+    public static void DrawOldtimerSmall(Canvas targetCanvas)
+        => DrawOldtimerSmallColored(targetCanvas, Colors.SaddleBrown);
+
+    public static void DrawModernCar(Canvas targetCanvas)
+        => DrawModernCarColored(targetCanvas, Colors.SteelBlue);
+
+    public static void DrawModernCarSmall(Canvas targetCanvas)
+        => DrawModernCarSmallColored(targetCanvas, Colors.SteelBlue);
+    
+
+    public static void DrawOldtimerColored(Canvas targetCanvas, Color bodyColor)
     {
-        public static void DrawOldtimer(Canvas targetCanvas){
-            targetCanvas.Children.Clear();
-            Polygon MittelKörper = new Polygon();
-            MittelKörper.Points = new PointCollection { 
-                new Point(30, 120), new Point(370,120), new Point(370, 80), new Point(340, 70), new Point(120, 70), new Point(30, 80)
-            };
-            MittelKörper.Fill = Brushes.SaddleBrown;
-            MittelKörper.Stroke = Brushes.Black;
-            MittelKörper.StrokeThickness = 2;
-            
-            Polygon Fenster = new Polygon();
-            Fenster.Points = new PointCollection { 
-                new Point(100, 70), new Point(140,40), new Point(310,40), new Point(340, 70),
-            };
-            Fenster.Fill = Brushes.LightBlue;
-            Fenster.Stroke = Brushes.Black;
+        targetCanvas.Children.Clear();
+        var body = new SolidColorBrush(bodyColor);
 
-            Polygon Spoler = new Polygon();
-            Spoler.Points = new PointCollection
-            {
-                new Point(30, 75), new Point(60, 70),new Point(60, 76), new Point(64, 70), new Point(100, 65), new Point(100, 55), new Point(30, 65)             
-            };
-            Spoler.Fill = Brushes.Black;
-            Spoler.Stroke = Brushes.Black;
-            Spoler.StrokeThickness = 2;
-
-            Ellipse Wheel1 = new Ellipse();
-            Wheel1.Width = 60;
-            Wheel1.Height = 60;
-            Wheel1.Fill = Brushes.Silver;
-            Wheel1.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel1, 70);
-            Canvas.SetTop(Wheel1, 90);
-            
-            Ellipse Wheel2 = new Ellipse();
-            Wheel2.Width = 60;
-            Wheel2.Height = 60;
-            Wheel2.Fill = Brushes.Silver;
-            Wheel2.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel2, 270);
-            Canvas.SetTop(Wheel2, 90);
-            
-            targetCanvas.Children.Add(Wheel1);
-            targetCanvas.Children.Add(Wheel2);
-            targetCanvas.Children.Add(MittelKörper);
-            targetCanvas.Children.Add(Fenster);
-            targetCanvas.Children.Add(Spoler);
-        }
-        public static void DrawOldtimerSmall(Canvas targetCanvas)
+        var mittelKörper = new Polygon
         {
-            targetCanvas.Children.Clear();
-            
-            Polygon MittelKörper = new Polygon();
-            MittelKörper.Points = new PointCollection { 
-                new Point(15, 60), new Point(185, 60), new Point(185, 40), 
-                new Point(170, 35), new Point(60, 35), new Point(15, 40)
-            };
-            MittelKörper.Fill = Brushes.SaddleBrown;
-            MittelKörper.Stroke = Brushes.Black;
-            MittelKörper.StrokeThickness = 1;
-            
-            Polygon Fenster = new Polygon();
-            Fenster.Points = new PointCollection { 
-                new Point(50, 35), new Point(70, 20), new Point(155, 20), new Point(170, 35)
-            };
-            Fenster.Fill = Brushes.LightBlue;
-            Fenster.Stroke = Brushes.Black;
-
-            Polygon Spoler = new Polygon();
-            Spoler.Points = new PointCollection
+            Points = new PointCollection
             {
-                new Point(15, 37.5), new Point(30, 35), new Point(30, 38), 
-                new Point(32, 35), new Point(50, 32.5), new Point(50, 27.5), new Point(15, 32.5)             
-            };
-            Spoler.Fill = Brushes.Black;
-            Spoler.Stroke = Brushes.Black;
-            Spoler.StrokeThickness = 1;
-            
-            Ellipse Wheel1 = new Ellipse();
-            Wheel1.Width = 30;
-            Wheel1.Height = 30;
-            Wheel1.Fill = Brushes.Silver;
-            Wheel1.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel1, 35);
-            Canvas.SetTop(Wheel1, 45);
+                new(30, 120), new(370, 120), new(370, 80),
+                new(340, 70), new(120, 70), new(30, 80)
+            },
+            Fill = body,
+            Stroke = Brushes.Black,
+            StrokeThickness = 2
+        };
+
+        var fenster = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(100, 70), new(140, 40), new(310, 40), new(340, 70)
+            },
+            Fill = Brushes.LightBlue,
+            Stroke = Brushes.Black
+        };
+
+        var spoler = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(30, 75), new(60, 70), new(60, 76), new(64, 70),
+                new(100, 65), new(100, 55), new(30, 65)
+            },
+            Fill = Brushes.Black,
+            Stroke = Brushes.Black,
+            StrokeThickness = 2
+        };
+
+        var wheel1 = MakeEllipse(60, 60, 70, 90, Brushes.Silver);
+        var wheel2 = MakeEllipse(60, 60, 270, 90, Brushes.Silver);
+
+        targetCanvas.Children.Add(wheel1);
+        targetCanvas.Children.Add(wheel2);
+        targetCanvas.Children.Add(mittelKörper);
+        targetCanvas.Children.Add(fenster);
+        targetCanvas.Children.Add(spoler);
+    }
+
+    public static void DrawOldtimerSmallColored(Canvas targetCanvas, Color bodyColor)
+    {
+        targetCanvas.Children.Clear();
+        var body = new SolidColorBrush(bodyColor);
+
+        var mittelKörper = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(15, 60), new(185, 60), new(185, 40),
+                new(170, 35), new(60, 35), new(15, 40)
+            },
+            Fill = body,
+            Stroke = Brushes.Black,
+            StrokeThickness = 1
+        };
+
+        var fenster = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(50, 35), new(70, 20), new(155, 20), new(170, 35)
+            },
+            Fill = Brushes.LightBlue,
+            Stroke = Brushes.Black
+        };
+
+        var spoler = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(15, 37.5), new(30, 35), new(30, 38),
+                new(32, 35), new(50, 32.5), new(50, 27.5), new(15, 32.5)
+            },
+            Fill = Brushes.Black,
+            Stroke = Brushes.Black,
+            StrokeThickness = 1
+        };
+
+        var wheel1 = MakeEllipse(30, 30, 35, 45, Brushes.Silver);
+        var wheel2 = MakeEllipse(30, 30, 135, 45, Brushes.Silver);
+
+        targetCanvas.Children.Add(wheel1);
+        targetCanvas.Children.Add(wheel2);
+        targetCanvas.Children.Add(mittelKörper);
+        targetCanvas.Children.Add(fenster);
+        targetCanvas.Children.Add(spoler);
+    }
+
+    public static void DrawModernCarColored(Canvas targetCanvas, Color bodyColor)
+    {
+        targetCanvas.Children.Clear();
+        var body = new SolidColorBrush(bodyColor);
+
+        var mittelKörper = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(50, 120), new(350, 120), new(360, 110),
+                new(370, 80), new(340, 70), new(120, 70), new(60, 80)
+            },
+            Fill = body,
+            Stroke = Brushes.Black,
+            StrokeThickness = 2
+        };
+
+        var fenster = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(130, 70), new(180, 30), new(260, 30), new(310, 70)
+            },
+            Fill = Brushes.LightBlue,
+            Stroke = Brushes.Black
+        };
+
+        var spoler = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(55, 80), new(40, 50), new(80, 75)
+            },
+            Fill = Brushes.Black,
+            Stroke = Brushes.Black,
+            StrokeThickness = 2
+        };
+
+        var wheel1 = MakeEllipse(60, 60, 70, 90, Brushes.Silver);
+        var wheel2 = MakeEllipse(60, 60, 270, 90, Brushes.Silver);
+
+        targetCanvas.Children.Add(wheel1);
+        targetCanvas.Children.Add(wheel2);
+        targetCanvas.Children.Add(mittelKörper);
+        targetCanvas.Children.Add(fenster);
+        targetCanvas.Children.Add(spoler);
+    }
+
+    public static void DrawModernCarSmallColored(Canvas targetCanvas, Color bodyColor)
+    {
+        targetCanvas.Children.Clear();
+        var body = new SolidColorBrush(bodyColor);
+
+        var mittelKörper = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(25, 60), new(175, 60), new(180, 55),
+                new(185, 40), new(170, 35), new(60, 35), new(30, 40)
+            },
+            Fill = body,
+            Stroke = Brushes.Black,
+            StrokeThickness = 1
+        };
+
+        var fenster = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(65, 35), new(90, 15), new(130, 15), new(155, 35)
+            },
+            Fill = Brushes.LightBlue,
+            Stroke = Brushes.Black
+        };
+
+        var spoler = new Polygon
+        {
+            Points = new PointCollection
+            {
+                new(27.5, 40), new(20, 25), new(40, 37.5)
+            },
+            Fill = Brushes.Black,
+            Stroke = Brushes.Black,
+            StrokeThickness = 1
+        };
+
+        var wheel1 = MakeEllipse(30, 30, 35, 45, Brushes.Silver);
+        var wheel2 = MakeEllipse(30, 30, 135, 45, Brushes.Silver);
+
+        targetCanvas.Children.Add(wheel1);
+        targetCanvas.Children.Add(wheel2);
+        targetCanvas.Children.Add(mittelKörper);
+        targetCanvas.Children.Add(fenster);
+        targetCanvas.Children.Add(spoler);
+    }
     
-            Ellipse Wheel2 = new Ellipse();
-            Wheel2.Width = 30;
-            Wheel2.Height = 30;
-            Wheel2.Fill = Brushes.Silver;
-            Wheel2.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel2, 135);
-            Canvas.SetTop(Wheel2, 45);
-            
-            targetCanvas.Children.Add(Wheel1);
-            targetCanvas.Children.Add(Wheel2);
-            targetCanvas.Children.Add(MittelKörper);
-            targetCanvas.Children.Add(Fenster);
-            targetCanvas.Children.Add(Spoler);
-        }
-
-        public static void DrawModernCar(Canvas targetCanvas)
+    private static Ellipse MakeEllipse(double w, double h, double left, double top, Brush fill)
+    {
+        var e = new Ellipse
         {
-            targetCanvas.Children.Clear();
-            Polygon MittelKörper = new Polygon();
-            MittelKörper.Points = new PointCollection { 
-                new Point(50, 120), new Point(350, 120), new Point(360, 110), 
-                new Point(370, 80), new Point(340, 70), new Point(120, 70), new Point(60, 80) 
-            };
-            MittelKörper.Fill = Brushes.SteelBlue;
-            MittelKörper.Stroke = Brushes.Black;
-            MittelKörper.StrokeThickness = 2;
-            
-            Polygon Fenster = new Polygon();
-            Fenster.Points = new PointCollection { 
-                new Point(130, 70), new Point(180, 30), new Point(260, 30), new Point(310, 70) 
-            };
-            Fenster.Fill = Brushes.LightBlue;
-            Fenster.Stroke = Brushes.Black;
-
-            Polygon Spoler = new Polygon();
-            Spoler.Points = new PointCollection
-            {
-                new Point(55, 80), new Point(40, 50), new Point(80,75)
-            };
-            Spoler.Fill = Brushes.Black;
-            Spoler.Stroke = Brushes.Black;
-            Spoler.StrokeThickness = 2;
-
-            Ellipse Wheel1 = new Ellipse();
-            Wheel1.Width = 60;
-            Wheel1.Height = 60;
-            Wheel1.Fill = Brushes.Silver;
-            Wheel1.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel1, 70);
-            Canvas.SetTop(Wheel1, 90);
-            
-            Ellipse Wheel2 = new Ellipse();
-            Wheel2.Width = 60;
-            Wheel2.Height = 60;
-            Wheel2.Fill = Brushes.Silver;
-            Wheel2.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel2, 270);
-            Canvas.SetTop(Wheel2, 90);
-            
-            targetCanvas.Children.Add(Wheel1);
-            targetCanvas.Children.Add(Wheel2);
-            targetCanvas.Children.Add(MittelKörper);
-            targetCanvas.Children.Add(Fenster);
-            targetCanvas.Children.Add(Spoler);
-        }
-        
-        public static void DrawModernCarSmall(Canvas targetCanvas)
-        {
-            targetCanvas.Children.Clear();
-
-            Polygon MittelKörper = new Polygon();
-            MittelKörper.Points = new PointCollection { 
-                new Point(25, 60), new Point(175, 60), new Point(180, 55), 
-                new Point(185, 40), new Point(170, 35), new Point(60, 35), new Point(30, 40) 
-            };
-            MittelKörper.Fill = Brushes.SteelBlue;
-            MittelKörper.Stroke = Brushes.Black;
-            MittelKörper.StrokeThickness = 1;
-            
-            Polygon Fenster = new Polygon();
-            Fenster.Points = new PointCollection { 
-                new Point(65, 35), new Point(90, 15), new Point(130, 15), new Point(155, 35) 
-            };
-            Fenster.Fill = Brushes.LightBlue;
-            Fenster.Stroke = Brushes.Black;
-
-            Polygon Spoler = new Polygon();
-            Spoler.Points = new PointCollection
-            {
-                new Point(27.5, 40), new Point(20, 25), new Point(40, 37.5)
-            };
-            Spoler.Fill = Brushes.Black;
-            Spoler.Stroke = Brushes.Black;
-            Spoler.StrokeThickness = 1;
-            
-            Ellipse Wheel1 = new Ellipse();
-            Wheel1.Width = 30;
-            Wheel1.Height = 30;
-            Wheel1.Fill = Brushes.Silver;
-            Wheel1.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel1, 35);
-            Canvas.SetTop(Wheel1, 45);
-    
-            Ellipse Wheel2 = new Ellipse();
-            Wheel2.Width = 30;
-            Wheel2.Height = 30;
-            Wheel2.Fill = Brushes.Silver;
-            Wheel2.Stroke = Brushes.Black;
-            Canvas.SetLeft(Wheel2, 135);
-            Canvas.SetTop(Wheel2, 45);
-            
-            targetCanvas.Children.Add(Wheel1);
-            targetCanvas.Children.Add(Wheel2);
-            targetCanvas.Children.Add(MittelKörper);
-            targetCanvas.Children.Add(Fenster);
-            targetCanvas.Children.Add(Spoler);
-        }
+            Width = w,
+            Height = h,
+            Fill = fill,
+            Stroke = Brushes.Black
+        };
+        Canvas.SetLeft(e, left);
+        Canvas.SetTop(e, top);
+        return e;
+    }
 }
